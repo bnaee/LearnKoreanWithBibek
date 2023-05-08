@@ -1,0 +1,131 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="ubtTotalQuestionHandler"
+            type="com.genesiswtech.lkwb.ui.ubtTotalQuestion.view.IUBTTotalQuestionView" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fillViewport="true"
+            android:fitsSystemWindows="true"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_20"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_10"
+                        android:drawableLeft="@drawable/attempted_question_background"
+                        android:drawablePadding="@dimen/dimen_15"
+                        android:text="@string/attempted_questions"
+                        android:textColor="@color/sub_text"
+                        android:textFontWeight="500"
+                        app:fontFamily="@font/poppins_font_family" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/unsolved_question_background"
+                        android:drawablePadding="@dimen/dimen_15"
+                        android:text="@string/unattempted_questions"
+                        android:textColor="@color/sub_text"
+                        android:textFontWeight="500"
+                        app:fontFamily="@font/poppins_font_family" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/submitBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_8"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:layout_marginBottom="@dimen/dimen_20"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_blue_background"
+                        android:onClick="@{ubtTotalQuestionHandler::onSubmitButtonClick}"
+                        android:text="@string/submit"
+                        android:textAllCaps="false"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/white"
+                        android:textFontWeight="600"
+                        android:visibility="gone"
+                        app:fontFamily="@font/urbanist_font_family" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1"
+                    android:background="@drawable/line_divider_grey" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dimen_20">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:text="@string/reading"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/header_text"
+                        android:textFontWeight="500"
+                        app:fontFamily="@font/poppins_font_family" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerViewListening"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_15"
+                        android:layout_marginBottom="@dimen/dimen_15"
+                        android:text="@string/listening"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/header_text"
+                        android:textFontWeight="500"
+                        app:fontFamily="@font/poppins_font_family" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerViewReading"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/dimen_20"
+    android:layout_marginTop="@dimen/dimen_5"
+    android:layout_marginRight="@dimen/dimen_20"
+    android:layout_marginBottom="@dimen/dimen_5"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/blogIV"
+        android:layout_width="@dimen/dimen_100"
+        android:layout_height="@dimen/dimen_100"
+        android:layout_marginRight="@dimen/dimen_15"
+        android:src="@drawable/sample_blog_1" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/blogTitleTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_15"
+        android:layout_marginBottom="@dimen/dimen_10"
+        android:layout_toRightOf="@+id/blogIV"
+        android:text="@string/sample_blog_title1"
+        android:textColor="@color/discover_list_title"
+        android:textFontWeight="500"
+        app:fontFamily="@font/poppins_font_family" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/blogTimeTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/blogTitleTV"
+        android:layout_marginBottom="@dimen/dimen_10"
+        android:layout_toRightOf="@+id/blogIV"
+        android:text="@string/sample_blog_time"
+        android:textColor="@color/discover_list_sub"
+        android:textFontWeight="400"
+        app:fontFamily="@font/poppins_font_family" />
+
+</RelativeLayout>

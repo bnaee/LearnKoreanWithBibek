@@ -1,0 +1,457 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="ubtQuestionHandler"
+            type="com.genesiswtech.lkwb.ui.ubtQuestion.view.IQuestionView" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_10"
+            android:layout_marginRight="@dimen/dimen_10"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="@dimen/dimen_0"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/groupTitleTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/question_group"
+                    android:textFontWeight="600"
+                    app:fontFamily="@font/poppins_font_family" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1"
+                    android:layout_marginTop="@dimen/dimen_5"
+                    android:layout_marginBottom="@dimen/dimen_5"
+                    android:background="@drawable/line_divider_grey" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_5"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/numberTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/header_text"
+                        android:textFontWeight="600"
+                        app:fontFamily="@font/poppins_font_family" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        android:orientation="vertical"
+                        tools:ignore="WebViewLayout">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/questionTitleTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/dimen_10"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/question_main"
+                            android:textFontWeight="400"
+                            app:fontFamily="@font/poppins_font_family" />
+
+                        <LinearLayout
+                            android:id="@+id/webLinear"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/dimen_10"
+                            android:background="@drawable/question_webview_background"
+                            android:padding="@dimen/dimen_10">
+
+                            <WebView
+                                android:id="@+id/questionSubTV"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/ubt_blue_background"
+                                android:textColor="@color/question_sub"
+                                android:textFontWeight="400"
+                                app:fontFamily="@font/poppins_font_family" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/firstCV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10"
+
+                    android:background="@drawable/ubt_blue_background"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/questionIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:adjustViewBounds="true"
+                        android:onClick="@{ubtQuestionHandler::onQuestionImageClick}"
+                        android:padding="@dimen/dimen_10" />
+
+                    <LinearLayout
+                        android:id="@+id/soundLL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:orientation="vertical"
+                        android:paddingBottom="@dimen/dimen_10">
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/soundIBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@color/transparent"
+                            android:onClick="@{ubtQuestionHandler::onSoundButtonClick}"
+                            android:padding="@dimen/dimen_10"
+                            android:src="@drawable/ic_sound_exam" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/click_here_play"
+                            android:textColor="@color/question_sub"
+                            android:textFontWeight="600"
+                            app:fontFamily="@font/poppins_font_family" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/dimen_5"
+                            android:text="@string/you_cannot_play"
+                            android:textColor="@color/question_sub"
+                            android:textFontWeight="400"
+                            android:visibility="gone"
+                            app:fontFamily="@font/poppins_font_family" />
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/webSoundLinear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:layout_marginBottom="@dimen/dimen_10"
+                    android:background="@drawable/question_webview_background"
+                    android:padding="@dimen/dimen_10"
+                    tools:ignore="WebViewLayout">
+
+                    <WebView
+                        android:id="@+id/questionSoundSubTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ubt_blue_background"
+                        android:textColor="@color/question_sub"
+                        android:textFontWeight="400"
+                        app:fontFamily="@font/poppins_font_family" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="@dimen/dimen_1"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dimen_10"
+                android:layout_marginRight="@dimen/dimen_10"
+                android:background="@drawable/line_divider_grey" />
+
+            <LinearLayout
+                android:id="@+id/linear"
+                android:layout_width="@dimen/dimen_0"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <RadioGroup
+                    android:id="@+id/questionRG"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_0"
+                    android:layout_marginBottom="@dimen/dimen_20"
+                    android:visibility="gone">
+
+                    <RelativeLayout
+                        android:id="@+id/relGroup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimen_10"
+                            android:layout_marginRight="@dimen/dimen_10"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <LinearLayout
+                                android:layout_width="@dimen/dimen_0"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:id="@+id/firstChoice"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/dimen_10"
+                                    android:background="@drawable/option_background"
+                                    android:onClick="@{ubtQuestionHandler::onFirstChoiceClick}"
+                                    android:orientation="horizontal">
+
+                                    <androidx.appcompat.widget.AppCompatRadioButton
+                                        android:id="@+id/firstChoiceRB"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_gravity="center"
+                                        android:layout_marginRight="20dp"
+                                        android:background="@drawable/radio_bg"
+                                        android:button="@null"
+                                        android:gravity="center"
+                                        android:onClick="@{ubtQuestionHandler::onFirstRBClick}"
+                                        android:text="1"
+                                        android:textAppearance="?android:attr/textAppearanceMedium"
+                                        android:textColor="@drawable/radio_text_bg"
+                                        android:textFontWeight="700"
+                                        app:fontFamily="@font/urbanist_font_family" />
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:id="@+id/firstChoiceIV"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:adjustViewBounds="true"
+                                        android:background="@color/transparent"
+                                        android:onClick="@{ubtQuestionHandler::onFirstChoiceSoundClick}"
+                                        android:src="@drawable/ic_headphone" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/firstChoiceTV"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:textAppearance="?android:attr/textAppearanceSmall"
+                                        android:textColor="@color/black"
+                                        android:textFontWeight="700"
+                                        app:fontFamily="@font/poppins_font_family" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/thirdChoice"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/secondChoice"
+                                    android:layout_marginBottom="@dimen/dimen_10"
+                                    android:background="@drawable/option_background"
+                                    android:onClick="@{ubtQuestionHandler::onThirdChoiceClick}"
+                                    android:orientation="horizontal">
+
+                                    <androidx.appcompat.widget.AppCompatRadioButton
+                                        android:id="@+id/thirdChoiceRB"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_gravity="center"
+                                        android:layout_marginRight="20dp"
+                                        android:background="@drawable/radio_bg"
+                                        android:button="@null"
+                                        android:gravity="center"
+                                        android:onClick="@{ubtQuestionHandler::onThirdRBClick}"
+                                        android:text="3"
+                                        android:textAppearance="?android:attr/textAppearanceMedium"
+                                        android:textColor="@drawable/radio_text_bg"
+                                        android:textFontWeight="700"
+                                        app:fontFamily="@font/urbanist_font_family" />
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:id="@+id/thirdChoiceIV"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:adjustViewBounds="true"
+                                        android:background="@color/transparent"
+                                        android:onClick="@{ubtQuestionHandler::onThirdChoiceSoundClick}"
+                                        android:src="@drawable/ic_headphone" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/thirdChoiceTV"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:textAppearance="?android:attr/textAppearanceSmall"
+                                        android:textColor="@color/black"
+                                        android:textFontWeight="700"
+                                        app:fontFamily="@font/poppins_font_family" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="@dimen/dimen_1"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/dimen_10"
+                                android:layout_marginRight="@dimen/dimen_10"
+                                android:background="@drawable/line_divider_grey"
+                                android:visibility="invisible" />
+
+                            <LinearLayout
+                                android:layout_width="@dimen/dimen_0"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:id="@+id/secondChoice"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/firstChoice"
+                                    android:layout_marginBottom="@dimen/dimen_10"
+                                    android:background="@drawable/option_background"
+                                    android:onClick="@{ubtQuestionHandler::onSecondChoiceClick}"
+                                    android:orientation="horizontal">
+
+                                    <androidx.appcompat.widget.AppCompatRadioButton
+                                        android:id="@+id/secondChoiceRB"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_gravity="center"
+                                        android:layout_marginEnd="20dp"
+                                        android:background="@drawable/radio_bg"
+                                        android:button="@null"
+                                        android:gravity="center"
+                                        android:onClick="@{ubtQuestionHandler::onSecondRBClick}"
+                                        android:text="2"
+                                        android:textAppearance="?android:attr/textAppearanceMedium"
+                                        android:textColor="@drawable/radio_text_bg"
+                                        android:textFontWeight="700"
+                                        app:fontFamily="@font/urbanist_font_family" />
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:id="@+id/secondChoiceIV"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:adjustViewBounds="true"
+                                        android:background="@color/transparent"
+                                        android:onClick="@{ubtQuestionHandler::onSecondChoiceSoundClick}"
+                                        android:src="@drawable/ic_headphone" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/secondChoiceTV"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:textAppearance="?android:attr/textAppearanceSmall"
+                                        android:textColor="@color/black"
+                                        android:textFontWeight="700"
+                                        app:fontFamily="@font/poppins_font_family" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/fourthChoice"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/thirdChoice"
+                                    android:layout_marginBottom="@dimen/dimen_10"
+                                    android:background="@drawable/option_background"
+                                    android:onClick="@{ubtQuestionHandler::onFourthChoiceClick}"
+                                    android:orientation="horizontal">
+
+                                    <androidx.appcompat.widget.AppCompatRadioButton
+                                        android:id="@+id/fourthChoiceRB"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_gravity="center"
+                                        android:layout_marginRight="20dp"
+                                        android:background="@drawable/radio_bg"
+                                        android:button="@null"
+                                        android:gravity="center"
+                                        android:onClick="@{ubtQuestionHandler::onFourthRBClick}"
+                                        android:text="4"
+                                        android:textAppearance="?android:attr/textAppearanceMedium"
+                                        android:textColor="@drawable/radio_text_bg"
+                                        android:textFontWeight="700"
+                                        app:fontFamily="@font/urbanist_font_family" />
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:id="@+id/fourthChoiceIV"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:adjustViewBounds="true"
+                                        android:background="@color/transparent"
+                                        android:onClick="@{ubtQuestionHandler::onFourthChoiceSoundClick}"
+                                        android:src="@drawable/ic_headphone" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/fourthChoiceTV"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:textAppearance="?android:attr/textAppearanceSmall"
+                                        android:textColor="@color/black"
+                                        android:textFontWeight="700"
+                                        app:fontFamily="@font/poppins_font_family" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@+id/fourthChoice"
+                            android:layout_alignParentEnd="true"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/ic_exam_banner" />
+
+
+                    </RelativeLayout>
+                </RadioGroup>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

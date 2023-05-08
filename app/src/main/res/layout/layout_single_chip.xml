@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dimen_10"
+    android:background="@drawable/ubt_package_background">
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chipCpp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="Gello"
+        android:textColor="@color/black"
+        android:textFontWeight="600"
+        android:textSize="13dp"
+        android:theme="@style/Theme.MaterialComponents.Light"
+        app:chipBackgroundColor="@android:color/transparent"
+        app:chipSurfaceColor="@android:color/transparent"
+        app:fontFamily="@font/poppins_font_family" />
+
+</LinearLayout>
+

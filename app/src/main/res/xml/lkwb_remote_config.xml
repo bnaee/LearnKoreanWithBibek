@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultsMap>
+    <entry>
+        <key>checkForUpdate</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>isForceUpdate</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>versionCode</key>
+        <value>10</value>
+    </entry>
+    <entry>
+        <key>appUpdateMessage</key>
+        <value></value>
+    </entry>
+</defaultsMap>

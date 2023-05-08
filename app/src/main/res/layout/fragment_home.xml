@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="homeHandler"
+            type="com.genesiswtech.lkwb.ui.home.view.IHomeView" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <include
+            android:id="@+id/llProgressBar"
+            layout="@layout/layout_progress_bar_with_text"
+            android:visibility="gone" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fillViewport="true"
+            android:fitsSystemWindows="true"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/dimen_5">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/homeBannerCV"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_margin="@dimen/dimen_0"
+                    android:onClick="@{homeHandler::onHomeBannerClick}"
+                    android:visibility="gone"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/dimen_0"
+                    app:cardElevation="@dimen/dimen_5"
+                    app:cardMaxElevation="@dimen/dimen_6"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true">
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imgHomeBanner"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/sample_banner" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/dimen_20">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/bannerSubTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/view"
+                            android:layout_marginTop="@dimen/dimen_10"
+                            android:textColor="@color/white"
+                            android:textFontWeight="500"
+                            android:visibility="gone"
+                            app:fontFamily="@font/urbanist_font_family" />
+
+                        <View
+                            android:id="@+id/view"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_centerInParent="true" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/bannerHeaderTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@+id/view"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/white"
+                            android:textFontWeight="700"
+                            android:visibility="gone"
+                            app:fontFamily="@font/urbanist_font_family" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/scoreCV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_0"
+                    android:onClick="@{homeHandler::onGraphViewClick}"
+                    android:visibility="gone"
+                    app:cardBackgroundColor="@color/ubt_blue"
+                    app:cardCornerRadius="@dimen/dimen_0"
+                    app:cardElevation="@dimen/dimen_5"
+                    app:cardMaxElevation="@dimen/dimen_6"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true">
+
+                    <include layout="@layout/layout_test_score" />
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/graphCV"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_margin="0dp"
+                    android:visibility="gone"
+                    app:cardCornerRadius="@dimen/dimen_0"
+                    app:cardElevation="@dimen/dimen_5"
+                    app:cardMaxElevation="@dimen/dimen_6"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:layout_marginBottom="@dimen/dimen_20"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="@string/last_5_test_scores"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/black"
+                            android:textFontWeight="500"
+                            app:fontFamily="@font/urbanist_font_family" />
+
+                        <lecho.lib.hellocharts.view.LineChartView
+                            android:id="@+id/chart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:clickable="false"
+                            android:focusableInTouchMode="false"
+                            android:paddingEnd="@dimen/dimen_30" />
+                    </LinearLayout>
+
+
+                    <com.jjoe64.graphview.GraphView
+                        android:id="@+id/testScoreGV"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="gone" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/serviceCV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_0"
+                    android:visibility="gone"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/dimen_0"
+                    app:cardElevation="@dimen/dimen_5"
+                    app:cardMaxElevation="@dimen/dimen_6"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:layout_marginRight="@dimen/dimen_10"
+                        android:layout_marginBottom="@dimen/dimen_10"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginBottom="@dimen/dimen_20"
+                            android:text="@string/our_services"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/button_blue"
+                            android:textFontWeight="700"
+                            app:fontFamily="@font/urbanist_font_family" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerViewServices"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:overScrollMode="never" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <com.google.android.gms.ads.AdView
+                    android:id="@+id/adView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dimen_5"
+                    android:layout_marginBottom="@dimen/dimen_5"
+                    ads:adSize="BANNER"
+                    ads:adUnitId="@string/banner_ad_id"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/homeBannerFirstCV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_0"
+                    android:visibility="gone"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/dimen_0"
+                    app:cardElevation="@dimen/dimen_5"
+                    app:cardMaxElevation="@dimen/dimen_6"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imgHomeBannerFirst"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/sample_banner_first" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/mostBuyCV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_0"
+                    android:visibility="gone"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/dimen_0"
+                    app:cardElevation="@dimen/dimen_5"
+                    app:cardMaxElevation="@dimen/dimen_6"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dimen_10"
+                        android:orientation="vertical"
+                        android:paddingBottom="@dimen/dimen_15">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dimen_10"
+                                android:text="@string/most_purchase_sets"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textColor="@color/button_blue"
+                                android:textFontWeight="700"
+                                app:fontFamily="@font/urbanist_font_family" />
+
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/mostBuyViewTV"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_margin="@dimen/dimen_10"
+                                android:gravity="right"
+                                android:onClick="@{homeHandler::onMostBuyViewClick}"
+                                android:text="@string/view_all"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/button_blue"
+                                android:textFontWeight="500"
+                                app:fontFamily="@font/urbanist_font_family" />
+
+                        </LinearLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerViewMostBuySets"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:overScrollMode="never" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <com.google.android.gms.ads.AdView
+                    android:id="@+id/adView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dimen_5"
+                    android:layout_marginBottom="@dimen/dimen_5"
+                    ads:adSize="BANNER"
+                    ads:adUnitId="@string/banner_ad_id"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/homeBannerSecondCV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_0"
+                    android:visibility="gone"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/dimen_0"
+                    app:cardElevation="@dimen/dimen_5"
+                    app:cardMaxElevation="@dimen/dimen_6"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imgHomeBannerSecond"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/sample_banner_first" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/newUBTCV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_0"
+                    android:visibility="gone"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/dimen_0"
+                    app:cardElevation="@dimen/dimen_5"
+                    app:cardMaxElevation="@dimen/dimen_6"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dimen_10"
+                        android:orientation="vertical"
+                        android:paddingBottom="@dimen/dimen_15">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dimen_10"
+                            android:orientation="horizontal">
+
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignStart="@+id/newTestViewTV"
+                                android:layout_alignParentLeft="true"
+                                android:layout_marginRight="@dimen/dimen_10"
+                                android:layout_toStartOf="@+id/newTestViewTV"
+                                android:ellipsize="middle"
+                                android:singleLine="true"
+                                android:text="@string/new_test"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textColor="@color/button_blue"
+                                android:textFontWeight="700"
+                                app:fontFamily="@font/urbanist_font_family" />
+
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/newTestViewTV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center"
+                                android:onClick="@{homeHandler::onNewTestViewClick}"
+                                android:text="@string/view_all"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/button_blue"
+                                android:textFontWeight="500"
+                                app:fontFamily="@font/urbanist_font_family" />
+
+                        </RelativeLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerViewNewTest"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:overScrollMode="never" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

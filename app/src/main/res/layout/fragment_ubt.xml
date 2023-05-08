@@ -1,0 +1,46 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="ubtHandler"
+            type="com.genesiswtech.lkwb.ui.ubt.view.IUBTTestView" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/ubtTL"
+            app:tabContentStart="0dp"
+            android:layout_width="fill_parent"
+            app:tabTextAppearance="@style/MyCustomTextAppearance"
+            android:layout_height="wrap_content"
+            app:tabMaxWidth="0dp"
+            app:tabGravity="fill"
+            app:tabMode="fixed"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tabIndicatorColor="@color/transparent"
+            app:tabPaddingStart="0dp"
+            app:tabSelectedTextColor="@color/header_text"
+            app:tabTextColor="@color/black"
+            android:elevation="15dp"/>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/ubtVP"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ubtTL" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,112 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/packages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/dimen_15"
+        android:background="@drawable/gradient_package">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_package_background" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/dimen_15">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/packageSetBtn"
+                android:layout_width="@dimen/dimen_40"
+                android:layout_height="@dimen/dimen_20"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/background_buy_package"
+                android:gravity="center"
+                android:text="20 Sets"
+                android:textColor="@color/black"
+                android:textFontWeight="600"
+                android:textSize="@dimen/dimen_8"
+                app:fontFamily="@font/urbanist_font_family" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/packageTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/packageRel"
+                android:gravity="center"
+                android:text="@string/platinum"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black"
+                android:textFontWeight="600"
+                app:fontFamily="@font/poppins_font_family" />
+
+
+            <RelativeLayout
+                android:id="@+id/packageRel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="@dimen/dimen_10">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/packagePriceTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/packageView"
+                    android:gravity="center"
+                    android:text="Rs. 800"
+                    android:textColor="@color/black"
+                    android:textFontWeight="600"
+                    android:textSize="@dimen/dimen_12"
+                    app:fontFamily="@font/urbanist_font_family" />
+
+                <View
+                    android:id="@+id/packageView"
+                    android:layout_width="@dimen/dimen_1"
+                    android:layout_height="@dimen/dimen_1"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/dimen_2"
+                    android:layout_marginRight="@dimen/dimen_2" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/packagePriceCutTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/packageView"
+                    android:gravity="center"
+                    android:text="800"
+                    android:textColor="@color/black"
+                    android:textFontWeight="600"
+                    android:textSize="@dimen/dimen_12"
+                    app:fontFamily="@font/urbanist_font_family" />
+
+            </RelativeLayout>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/packageBuyBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_20"
+                android:layout_below="@+id/packageRel"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/background_buy_package"
+                android:clickable="false"
+                android:focusable="false"
+                android:gravity="center"
+                android:text="@string/buy_package"
+                android:textColor="@color/header_text"
+                android:textFontWeight="600"
+                android:textSize="@dimen/dimen_8"
+                android:translationZ="@dimen/dimen_90"
+                app:fontFamily="@font/urbanist_font_family" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

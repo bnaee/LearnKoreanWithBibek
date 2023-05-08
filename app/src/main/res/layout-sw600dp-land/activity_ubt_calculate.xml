@@ -1,0 +1,574 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="ubtCalculateHandler"
+            type="com.genesiswtech.lkwb.ui.ubtCalculate.view.IUBTCalculateView" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fillViewport="true"
+            android:fitsSystemWindows="true"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_25"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/dimen_30"
+                        android:layout_height="@dimen/dimen_30"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_thumbs_up" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:onClick="@{ubtCalculateHandler::onSoundButtonClick}"
+                        android:paddingStart="@dimen/dimen_10"
+                        android:text="@string/you_did_a_great" />
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:layout_marginBottom="@dimen/dimen_20"
+                    android:text="@string/test_completed"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/header_text"
+                    android:textFontWeight="500"
+                    app:fontFamily="@font/poppins_font_family" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="@dimen/dimen_100"
+                        android:layout_height="@dimen/dimen_1"
+                        android:background="@drawable/line_divider_grey" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:paddingStart="@dimen/dimen_10"
+                        android:paddingEnd="@dimen/dimen_10"
+                        android:src="@drawable/ic_clock"
+                        android:tint="@color/black" />
+
+                    <View
+                        android:layout_width="@dimen/dimen_100"
+                        android:layout_height="@dimen/dimen_1"
+                        android:background="@drawable/line_divider_grey" />
+
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/timeSpentTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:layout_marginBottom="@dimen/dimen_20"
+                    android:gravity="center"
+                    android:text="@string/you_have_spent" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_30"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:weightSum="4">
+
+                    <RelativeLayout
+                        android:id="@+id/attemptedRel"
+                        android:layout_width="0dp"
+                        android:layout_height="200dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ubt_calculate_background">
+
+                        <ProgressBar
+                            android:id="@+id/attemptedPB"
+                            style="@style/CircularDeterminateProgressBarBlue"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            tools:progress="60" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/attemptedTV"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@+id/view1"
+                            android:gravity="center"
+                            android:text="15/40"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            app:fontFamily="@font/urbanist_font_family" />
+
+                        <View
+                            android:id="@+id/view1"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_centerInParent="true" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/view1"
+                            android:gravity="center"
+                            android:text="@string/attempted_break_questions"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            app:fontFamily="@font/urbanist_font_family" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/unsolvedRel"
+                        android:layout_width="0dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="@dimen/dimen_20"
+                        android:layout_weight="1"
+                        android:background="@drawable/ubt_calculate_background">
+
+                        <ProgressBar
+                            android:id="@+id/unsolvedPB"
+                            style="@style/CircularDeterminateProgressBarRed"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            tools:progress="60" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/unsolvedTV"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@+id/view2"
+                            android:gravity="center"
+                            android:text="15/40"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            app:fontFamily="@font/urbanist_font_family" />
+
+                        <View
+                            android:id="@+id/view2"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_centerInParent="true" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/view2"
+                            android:gravity="center"
+                            android:text="@string/unsolved_break_questions"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            app:fontFamily="@font/urbanist_font_family" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:weightSum="4">
+
+                    <RelativeLayout
+                        android:id="@+id/correctRel"
+                        android:layout_width="0dp"
+                        android:layout_height="200dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ubt_calculate_background">
+
+                        <ProgressBar
+                            android:id="@+id/correctPB"
+                            style="@style/CircularDeterminateProgressBarBlue"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            tools:progress="60" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/correctTV"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@+id/view3"
+                            android:gravity="center"
+                            android:text="15/40"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            app:fontFamily="@font/urbanist_font_family" />
+
+                        <View
+                            android:id="@+id/view3"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_centerInParent="true" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/view3"
+                            android:gravity="center"
+                            android:text="@string/correct_break_answers"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            app:fontFamily="@font/urbanist_font_family" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/scoredRel"
+                        android:layout_width="0dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="@dimen/dimen_20"
+                        android:layout_weight="1"
+                        android:background="@drawable/ubt_calculate_background">
+
+                        <ProgressBar
+                            android:id="@+id/scoredPB"
+                            style="@style/CircularDeterminateProgressBarBlue"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            tools:progress="60" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/scoredTV"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@+id/view4"
+                            android:gravity="center"
+                            android:text="15/40"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            app:fontFamily="@font/urbanist_font_family" />
+
+                        <View
+                            android:id="@+id/view4"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:layout_centerInParent="true" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/view4"
+                            android:gravity="center"
+                            android:text="@string/obtained_break_marks"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/black"
+                            android:textFontWeight="700"
+                            app:fontFamily="@font/urbanist_font_family" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_50">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_7"
+                        android:layout_marginTop="@dimen/dimen_7"
+                        android:background="@drawable/reward_red_background"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dimen_20">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/earned_reward_point"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/white"
+                            android:textFontWeight="700"
+                            app:fontFamily="@font/urbanist_font_family" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/dimen_7"
+                        android:background="@drawable/reward_blue_background"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dimen_20">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/rewardPointTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="@string/earned_reward_point"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/white"
+                            android:textFontWeight="700"
+                            app:fontFamily="@font/urbanist_font_family" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_50"
+                    android:layout_marginBottom="@dimen/dimen_15"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/closeBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/dimen_8"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_red_background"
+                        android:onClick="@{ubtCalculateHandler::onCloseButtonClick}"
+                        android:text="@string/close"
+                        android:textAllCaps="false"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/white"
+                        android:textFontWeight="600"
+                        app:fontFamily="@font/urbanist_font_family" />
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/resultBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_8"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_blue_background"
+                        android:onClick="@{ubtCalculateHandler::onResultsButtonClick}"
+                        android:text="@string/view_result"
+                        android:textAllCaps="false"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/white"
+                        android:textFontWeight="600"
+                        app:fontFamily="@font/urbanist_font_family" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/calculateTitleTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:layout_marginBottom="@dimen/dimen_20"
+                        android:text="@string/you_finished_the"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/header_text"
+                        android:textFontWeight="500"
+                        app:fontFamily="@font/poppins_font_family" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/questions_attempt"
+                            android:textColor="@color/sub_text"
+                            android:textFontWeight="600"
+                            app:fontFamily="@font/poppins_font_family" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/calculateAttemptTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textColor="@color/des_text"
+                            android:textFontWeight="600"
+                            app:fontFamily="@font/poppins_font_family" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1"
+                        android:layout_marginTop="@dimen/dimen_15"
+                        android:layout_marginBottom="@dimen/dimen_15"
+                        android:background="@color/line_divider_grey" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/unsolved_questions"
+                            android:textColor="@color/sub_text"
+                            android:textFontWeight="600"
+                            app:fontFamily="@font/poppins_font_family" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/calculateUnsolvedTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textColor="@color/des_text"
+                            android:textFontWeight="600"
+                            app:fontFamily="@font/poppins_font_family" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1"
+                        android:layout_marginTop="@dimen/dimen_15"
+                        android:layout_marginBottom="@dimen/dimen_15"
+                        android:background="@color/line_divider_grey" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/time_utilization"
+                            android:textColor="@color/sub_text"
+                            android:textFontWeight="600"
+                            app:fontFamily="@font/poppins_font_family" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/calculateTimeTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textColor="@color/des_text"
+                            android:textFontWeight="600"
+                            app:fontFamily="@font/poppins_font_family" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1"
+                        android:layout_marginTop="@dimen/dimen_15"
+                        android:layout_marginBottom="@dimen/dimen_15"
+                        android:background="@color/line_divider_grey" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/correct_answers"
+                            android:textColor="@color/sub_text"
+                            android:textFontWeight="600"
+                            app:fontFamily="@font/poppins_font_family" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/calculateCorrectTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textColor="@color/des_text"
+                            android:textFontWeight="600"
+                            app:fontFamily="@font/poppins_font_family" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1"
+                        android:layout_marginTop="@dimen/dimen_15"
+                        android:layout_marginBottom="@dimen/dimen_15"
+                        android:background="@color/line_divider_grey" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/scored_numbers"
+                            android:textColor="@color/sub_text"
+                            android:textFontWeight="600"
+                            app:fontFamily="@font/poppins_font_family" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/calculateScoreTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textColor="@color/des_text"
+                            android:textFontWeight="600"
+                            app:fontFamily="@font/poppins_font_family" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

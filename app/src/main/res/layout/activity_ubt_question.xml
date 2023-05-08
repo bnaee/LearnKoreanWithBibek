@@ -1,0 +1,169 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="ubtQuestionHandler"
+            type="com.genesiswtech.lkwb.ui.ubtQuestion.view.IUBTQuestionView" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <include
+            android:id="@+id/llProgressBar"
+            layout="@layout/layout_progress_bar_with_text"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/ubtQuestionPage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <RelativeLayout
+                android:id="@+id/topViewRel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:background="@color/header_text"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimen_15">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/questionCountTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/question_no"
+                    android:textColor="@color/white"
+                    android:textFontWeight="600"
+                    app:fontFamily="@font/poppins_font_family" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/questionCountTV1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/question_of"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/header_text"
+                    android:textFontWeight="600"
+                    android:visibility="gone"
+                    app:fontFamily="@font/poppins_font_family" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/timerTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="center"
+                    android:drawableStart="@drawable/ic_clock"
+                    android:drawablePadding="@dimen/dimen_10"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textFontWeight="600"
+                    app:fontFamily="@font/poppins_font_family" />
+
+            </RelativeLayout>
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewPagerQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/bottomViewRel"
+                android:layout_below="@+id/topViewRel"
+                tools:ignore="MissingConstraints" />
+
+            <LinearLayout
+                android:id="@+id/bottomViewRel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="@dimen/dimen_15"
+                android:layout_marginBottom="-5dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/previousBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:background="@drawable/button_previous"
+                        android:onClick="@{ubtQuestionHandler::onPreviousButtonClick}"
+                        android:text="@string/previous"
+                        android:textAllCaps="false"
+                        android:textColor="@color/header_text"
+                        android:textFontWeight="600"
+                        android:visibility="gone"
+                        app:fontFamily="@font/urbanist_font_family" />
+
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="@dimen/dimen_15"
+                        android:layout_height="@dimen/dimen_1"
+                        android:visibility="gone" />
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/nextBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:background="@drawable/button_blue_background"
+                        android:onClick="@{ubtQuestionHandler::onNextButtonClick}"
+                        android:text="@string/next"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textFontWeight="600"
+                        app:fontFamily="@font/urbanist_font_family" />
+
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/submitBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10"
+                    android:layout_marginBottom="@dimen/dimen_0"
+                    android:background="@drawable/button_all_question"
+                    android:onClick="@{ubtQuestionHandler::onSubmitButtonClick}"
+                    android:text="@string/submit_now"
+                    android:textAllCaps="false"
+                    android:textColor="@color/header_text"
+                    android:textFontWeight="600"
+                    app:fontFamily="@font/urbanist_font_family" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/allQuestionBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_0"
+                    android:layout_marginBottom="@dimen/dimen_0"
+                    android:background="@drawable/button_all_question"
+                    android:onClick="@{ubtQuestionHandler::onAllQuestionButtonClick}"
+                    android:text="@string/submit_now"
+                    android:textAllCaps="false"
+                    android:textColor="@color/header_text"
+                    android:textFontWeight="600"
+                    android:visibility="gone"
+                    app:fontFamily="@font/urbanist_font_family" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

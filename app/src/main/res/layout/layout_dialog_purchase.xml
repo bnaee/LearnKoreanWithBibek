@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dimen_30"
+    android:orientation="vertical"
+    android:padding="@dimen/dimen_30">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/titleTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_30"
+        android:layout_marginRight="@dimen/dimen_30"
+        android:gravity="center"
+        android:text="@string/sure_to_buy"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/black"
+        android:textFontWeight="500"
+        app:fontFamily="@font/urbanist_font_family" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/subTitleTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_30"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="@dimen/dimen_30"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textFontWeight="400"
+        app:fontFamily="@font/urbanist_font_family" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_40">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/yesBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/dialog_yes_backgroud"
+            android:text="@string/yes"
+            android:textAllCaps="false"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white"
+            android:textFontWeight="600"
+            app:fontFamily="@font/urbanist_font_family" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>

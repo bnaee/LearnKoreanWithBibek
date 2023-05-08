@@ -1,0 +1,462 @@
+<resources>
+
+    <string name="app_name">LKWB</string>
+
+<!--    <string name="banner_ad_unit_id">ca-app-pub-1233897882630371~9929813331</string>-->
+<!--    <string name="banner_ad_id">ca-app-pub-1233897882630371/3089072818</string>-->
+<!--    <string name="banner_inter_id">ca-app-pub-1233897882630371/3007529371</string>-->
+
+    <string name="banner_ad_unit_id">ca-app-pub-4698367235216604~1374255219</string>
+    <string name="banner_ad_id">ca-app-pub-4698367235216604/6678552782</string>
+    <string name="banner_inter_id">ca-app-pub-4698367235216604/9453889356</string>
+
+    <string name="facebook_app_id">1341775266585111</string>
+    <string name="fb_login_protocol_scheme">fb1341775266585111</string>
+    <string name="facebook_client_token">4d443d9759353192b1ee2c3c49a5c1c2</string>
+
+    <string name="home">대시보드</string>
+    <string name="ubt_test">LKWB UBT 시험</string>
+    <string name="dictionary">LKWB 사전</string>
+    <string name="grammar">LKWB 문법</string>
+    <string name="blog">LKWB 블로그</string>
+
+    <string name="dictionarys">사전</string>
+    <string name="grammars">문법</string>
+    <string name="blogs">블로그</string>
+
+    <string name="loading">로딩 중...</string>
+    <string name="please_wait">잠시만 기다리십시오...</string>
+    <string name="time_out">시간이 끝났습니다.</string>
+    <string name="request_failed">요청 실패</string>
+    <string name="no_internet">인터넷 연결이 없습니다.</string>
+    <string name="enter_password">비밀번호가 6자 이상이어야 합니다.</string>
+    <string name="enter_full_name">이름 입력</string>
+    <string name="enter_email_address">이메일 주소 입력</string>
+    <string name="enter_valid_email_address">이메일 주소 입력</string>
+    <string name="login_failed">이메일 주소 입력</string>
+    <string name="logout_failed">로그인 실패</string>
+    <string name="login_success">로그아웃 실패</string>
+    <string name="password_mismatch">암호가 일치하지 않습니다.</string>
+    <string name="password_6_character">비밀번호가 6자 이상이어야 합니다.</string>
+    <string name="opt_error">Verification code must be 4 digits</string>
+
+    <string name="sample_name">Birendra Bohara</string>
+    <string name="sample_email">Boharasbl43@gmail.com</string>
+    <string name="sample_package_name">Set-207-A Test</string>
+    <string name="sample_package_detail">Set 214-A EPS-TOPIK UBT Exam *1 units</string>
+    <string name="sample_price">Price: 100</string>
+    <string name="sample_set_count">Sets: 2</string>
+    <string name="sample_set_name">Set-218-D Test</string>
+    <string name="sample_new_price">가격: Rs. </string>
+    <string name="sample_ubt_test_title">TOPIK I - Reading - Mock Test</string>
+    <string name="sample_discover_title">(이)랍니다</string>
+    <string name="sample_discover_subtitle">This is an abbreviation of -(이)늘의 문. This form is used for indirect discourse by simply quoting what has been said...</string>
+    <string name="sample_blog_title1">Explanation about Korea</string>
+    <string name="sample_blog_title2">Explanation about Korea Festival</string>
+    <string name="sample_blog_time">Jan 12, 8 min read</string>
+    <string name="sample_blog_detail">It was the first day of my design internship. I started my day by attending the briefing done by the design team. Then, afterwards we all got in with some sketching as it was a part of daily design exercise.  I was given a task to design lo-fi wifreframes, therefore I started drawing my ideas out on paper the moved on to figma, a fully-funtioning design tool.</string>
+    <string name="other_related_blogs">다른 관련된 블로그</string>
+    <string name="comment">댓글</string>
+    <string name="comments">댓글</string>
+    <string name="commen">댓글</string>
+
+
+    <string name="test_score">마지막 본 시험 요약</string>
+    <string name="last_scored">최근 득점</string>
+    <string name="your_last_test_score">회원님의 최근 시험점수</string>
+    <string name="score">평균득점</string>
+    <string name="reward_points">리워드 포인트</string>
+    <string name="score_per">50%</string>
+    <string name="score_tot">out of 40</string>
+    <string name="our_services">서비스</string>
+    <string name="discussion">LKWB 문의</string>
+    <string name="most_purchase_sets">가장 많이 구매한 세트</string>
+    <string name="view_all">모두 보기</string>
+    <string name="new_test">새 LKWB UBT 시험 세트</string>
+
+
+    <string name="all_sets">모두 패캐지</string>
+    <string name="purchased_sets">내가 구매한 세트</string>
+    <string name="packag">패캐지</string>
+    <string name="packages">패캐지</string>
+    <string name="platinum">Platinum</string>
+    <string name="gold">Gold</string>
+    <string name="silver">Silver</string>
+    <string name="sets">세트</string>
+    <string name="buy_package">패캐지 구매</string>
+    <string name="topik_1">TOPIK 1 - Reading - Mock Test</string>
+    <string name="buy_a_premium">Buy a Premium Package</string>
+    <string name="ten_sets">10 sets, Price only 800</string>
+    <string name="sets_one">Sets 1</string>
+    <string name="test_now">시험 시작</string>
+    <string name="claim_now">지금 청구하기</string>
+    <string name="price_rs">Rs. </string>
+
+    <string name="grammar_of_day">오늘의 문법</string>
+    <string name="sample_korean">의미</string>
+    <string name="english_meaning">English Meaning:</string>
+    <string name="sample_translation">The Korean Grammar point "E" is used after a subject and object nouns, to show the listing or subjects and objects or an addition of a subject or object to one mentioned previously</string>
+    <string name="eps_topik_grammar">EPS TOPIK Grammar</string>
+    <string name="beginner_grammar">Beginner Grammar</string>
+    <string name="search">검색</string>
+    <string name="read_more">더 읽기</string>
+    <string name="word_of_day">오늘의 어휘</string>
+
+
+    <string name="search_word">어휘를 검색하여 의미를 아세요.</string>
+    <string name="search_grammar">회원님이 찾고 계신 문법이 있으신가요?</string>
+    <string name="search_discussion">Search discussion and find it\'s comments and replies.</string>
+    <string name="words_to_discover">다른 어휘</string>
+    <string name="nepali_to_korean">네팔어 → 한국어 사전</string>
+    <string name="korean_to_english">한국어 → 영어 사전</string>
+    <string name="korean_to_nepali">한국어 → 네팔어 사전</string>
+    <string name="english_to_korean">English To Korean</string>
+    <string name="recent_searches">Recent Searches</string>
+
+
+    <string name="word_title">가계부</string>
+    <string name="nepali">네팔어</string>
+    <string name="nepali_trans">घरेलू खाता</string>
+    <string name="english_trans">household ledger[account book]</string>
+    <string name="example">예시</string>
+    <string name="related_words">다른 문법</string>
+    <string name="word_example">가계부를 기록하다.
+खातामा रेकर्ड राख्नु।</string>
+    <string name="na">N/A</string>
+
+    <string name="grammar_title"></string>
+    <string name="meaning">의미</string>
+    <string name="rules">규칙</string>
+
+    <string name="about_us">회사 소개</string>
+    <string name="services">서비스</string>
+    <string name="useful_links">유용한 링크</string>
+    <string name="privacy_policy">개인정보보호정책</string>
+    <string name="terms_conditions">이용약관</string>
+    <string name="faq">FAQ</string>
+    <string name="contact_us">문의하기</string>
+    <string name="guide">Guide</string>
+    <string name="word_card">Word Card</string>
+    <string name="logout">로그아웃</string>
+
+    <string name="question_no">문항수  </string>
+    <string name="sample_time">44:49</string>
+    <string name="previous">이전</string>
+    <string name="next">다음</string>
+    <string name="submit">제출</string>
+    <string name="submit_now">지금 제출</string>
+    <string name="all_results">결과</string>
+
+    <string name="result">결과</string>
+    <string name="listening_result">듣기 결과 </string>
+    <string name="reading_result">읽기 결과 </string>
+    <string name="twenty_questions"> (20 문항)</string>
+    <string name="wrong_answer">오답</string>
+    <string name="correct_answer">정답</string>
+    <string name="unsolved_question">남은 문항</string>
+    <string name="all_questions">모든 문항</string>
+    <string name="listening">듣기 (20 문항)</string>
+    <string name="reading">읽기 (20 문항)</string>
+    <string name="attempted_question">진행한 문항</string>
+    <string name="attempted_questions">진행한 문항</string>
+    <string name="unattempted_questions">남은 문항</string>
+
+    <string name="attempted_break_questions">진행한 \n 문항</string>
+    <string name="unsolved_break_questions">남은 \n 문항</string>
+    <string name="correct_break_answers">정답</string>
+    <string name="scored_break_marks">득점</string>
+    <string name="obtained_break_marks">득점</string>
+
+
+    <string name="sign_in">로그인</string>
+    <string name="enter_your_mail">이메일 주소</string>
+    <string name="enter_your_password">암호 입력</string>
+    <string name="forgot_password">암호 찾기?</string>
+    <string name="login">로그인</string>
+    <string name="or_login_with">다른 밥법으로 로그인</string>
+    <string name="or_sign_up_with">다른 방법으로 회원가입</string>
+    <string name="dont_have_an_account">계정 없으신가요? ?  </string>
+    <string name="register_now"> 회원가입</string>
+
+    <string name="register_new_user">가입</string>
+    <string name="name">Name</string>
+    <string name="email">이메일 주소</string>
+    <string name="password">암호</string>
+    <string name="confirm_password">암호 확인</string>
+    <string name="register">가입</string>
+    <string name="sign_up_with">다른 방법으로 회원가입</string>
+    <string name="already_have_an_account">이미 계정이 있으신가요 ? </string>
+
+    <string name="dont_worry">회원님의 계정과 연결된 이메일 주소를 입력하시오.</string>
+    <string name="send_code">본인인증번호 발송</string>
+
+    <string name="otp_verification">본인인증</string>
+    <string name="enter_the_verification">이메일로 발송된 인증번호를 입력하시오.</string>
+    <string name="verify">본인인증</string>
+    <string name="didnt_received_code">본인인증번호를 안 받으신가요? </string>
+    <string name="resend"> 재발송</string>
+
+    <string name="create_new_password">새 비빌번호 만들기</string>
+    <string name="your_new_password">새 암호가 기존 암호와 차이가 있어야 합니다.</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="new_password">새 암호</string>
+
+    <string name="password_changed">암호 변경되었습니다!</string>
+    <string name="your_password_changed">암호 성공적으로 변경되었습니다.</string>
+    <string name="proceed_to_login">로그인으로 이동</string>
+
+    <string name="setting">설정</string>
+    <string name="profile">프로필</string>
+    <string name="account_settings">계정 설정</string>
+    <string name="full_name">이름</string>
+    <string name="change_password">암호 변경</string>
+    <string name="log_out">로그아웃</string>
+    <string name="edit">편집</string>
+    <string name="dummy_password">.........</string>
+
+    <string name="your_package">Your Package</string>
+    <string name="package_name">패캐지명</string>
+    <string name="package_details">패캐지 세부 사항</string>
+    <string name="package_price">패캐지 가격</string>
+    <string name="you_can_use">다음과 같은 디지털 지불 방법을 이용하여 패캐지를 구입하십시오.</string>
+    <string name="proceed">다음</string>
+    <string name="back">뒤로</string>
+    <string name="price">가격</string>
+    <string name="esewa">Esewa</string>
+    <string name="khalti">Khalti</string>
+    <string name="reward_point">리워드 포인트</string>
+    <string name="free">무료</string>
+    <string name="bank_transfer">Bank Transfer</string>
+    <string name="buy_now">지금 구매</string>
+
+    <string name="payment_successful">결제완료</string>
+    <string name="your_free_test_package">Your free test package has been added to your account.</string>
+    <string name="invoice_no">인보이스 번호: </string>
+    <string name="purchased_date">구입일시: </string>
+    <string name="purchase_name">성함: </string>
+    <string name="payment_method">결제방법: </string>
+    <string name="total_amount">결제금액: </string>
+    <string name="test">시험</string>
+    <string name="units">Units</string>
+    <string name="done">확인</string>
+
+    <string name="this_test_includes">이 시험에 포함된 것은 다음과 같습니다.</string>
+    <string name="ques">문항</string>
+    <string name="question">문항</string>
+    <string name="questions">문항:</string>
+    <string name="time">시간:</string>
+    <string name="reading_questions">읽기 문항</string>
+    <string name="listening_questions">듣기 문항</string>
+    <string name="minutes">분</string>
+    <string name="marks">점수:</string>
+    <string name="full_marks">만점:</string>
+    <string name="pass_marks">Pass Marks:</string>
+    <string name="you_can_leave">Note: You can leave the test at any time but you can not skip any questions. Attempt all the Questions.</string>
+    <string name="begin">시작</string>
+    <string name="minutes_">분.</string>
+
+
+    <string name="you_did_a_great">수고하셨습니다.</string>
+    <string name="test_completed">시험이 조료되었습니다!</string>
+    <string name="you_have_spent">당신은 보냈다 </string>
+    <string name="you_finished_the">You Finished the Set 239-A Test</string>
+    <string name="questions_attempt">Questions Attempt: </string>
+    <string name="questions_attempts">Questions Attempts </string>
+    <string name="unsolved_questions">Unsolved Questions </string>
+    <string name="time_utilization">Time Utilization: </string>
+    <string name="correct_answers">Correct Answers </string>
+    <string name="scored_marks">득점 </string>
+    <string name="scored_numbers">Scored Numbers</string>
+    <string name="close">닫기</string>
+    <string name="results">결과</string>
+    <string name="view_result">View Result</string>
+    <string name="earned_reward_point">Congratulations! You have earned 5.5 reward points.</string>
+    <string name="congratulation_earned">축하합니다. 회원님이 %1$s 리워드 포인트를 받으셨습니다. </string>
+    <string name="calculate_reward_points">리워드 포인트.</string>
+
+
+    <string name="ubt_buy_note"> 이 세트를 구매하시면 %1$s 리워드 포인트가 소면됩니다.</string>
+
+    <string name="favourite">즐겨찾기</string>
+    <string name="add_to_favourite">Added to favourites</string>
+    <string name="remove_from_favourite">Removed from favourites</string>
+
+    <string name="take_photo">사진 찍기</string>
+    <string name="choose_gallery">사진 라이브러리</string>
+    <string name="exit">Exit</string>
+
+    <string-array name="upload_option">
+        <item>@string/take_photo</item>
+        <item>@string/choose_gallery</item>
+        <item>@string/exit</item>
+    </string-array>
+
+    <string name="email_sent">이메일 전송</string>
+    <string name="click_here_play">재생하려면 여기서 누르십시오.</string>
+    <string name="you_cannot_play">오디오는 한 번만 재생 가능 </string>
+
+    <string name="sure_to_buy">Are you sure you want to buy </string>
+    <string name="sure_to_delete">Are you sure you want to delete? </string>
+    <string name="submit_test">시험 제출</string>
+    <string name="want_to_submit">시험 정말로 제출하시겠어요?</string>
+    <string name="ok">예</string>
+    <string name="yes">아니요</string>
+    <string name="no">No</string>
+    <string name="cancel">취소</string>
+
+    <string name="share_via">Share Via</string>
+    <string name="you_purchase">You have purchased the test?</string>
+    <string name="want_go_back">뒤로 가시겠습니까?</string>
+    <string name="really_want_go_back">뒤로 가시겠습니까?</string>
+    <string name="you_revert">이 과정은 되돌릴 수 없습니다.</string>
+
+    <string name="update">업데이트</string>
+
+    <string name="search_your_topic">검색하고 싶은 것이 있으신가요?</string>
+    <string name="reply">답변</string>
+    <string name="replies">답글</string>
+    <string name="by">회원님</string>
+    <string name="updated">업데이트하신</string>
+
+
+    <string name="latest_first">최근별로</string>
+    <string name="oldest_first">최초별로</string>
+    <string name="highest_comment">최대 댓글</string>
+    <string name="lowest_comment">최저 댓글</string>
+
+    <string name="add_discussion">문의하기</string>
+    <string name="discussion_title">Discussion Title</string>
+    <string name="edit_discussion">문의 편집</string>
+    <string name="what_thought">문의 내용?</string>
+    <string name="start_question">문의 제목</string>
+    <string name="title_required">논의를 시작하기 위해 제목을 입력하십시오.</string>
+    <string name="comment_required">댓글을 입력하십시오.</string>
+    <string name="reply_required">답장을 추가하십시오.</string>
+
+    <string name="posted_by">게시하신 회원님</string>
+    <string name="share">공유</string>
+    <string name="add_a_comment">댓글 달기</string>
+    <string name="add_comment">댓글 달기</string>
+    <string name="add_reply">답변하기</string>
+    <string name="add_a_reply">답변하기</string>
+    <string name="delete">삭제</string>
+    <string name="edit_comment">댓글 편집</string>
+    <string name="delete_comment">댓글 삭제</string>
+    <string name="edit_reply">답변 편집</string>
+    <string name="delete_reply">답장 삭제</string>
+
+    <string name="no_purchase_method">구매 밥법을 선택하지 않았습니다.</string>
+    <string name="select_any_method">다음 중 하나 구매 방법을 선택하십시오. </string>
+    <string name="you_have_purchased">회원님은 새 시험 세트를 구매하셨습니다.</string>
+    <string name="do_want_to_back">뒤로 가시겠어요?</string>
+
+    <string name="payment_failed">Payment Failed</string>
+    <string name="payment_canceled">Payment Canceled</string>
+
+    <string name="refer_code">추천 코드가 있으시면 입력하시오 (선택사항)</string>
+    <string name="insert_refer_code">추천 코드가 있으시면 입력하시오.</string>
+    <string name="continu">계속</string>
+    <string name="optional">선택사항</string>
+
+    <string name="enter_otp_to_verify">Please enter the OTP to verify your account </string>
+    <string name="otp_sent_mail">A OTP(One Time Password) has been sent to your email</string>
+
+    <string name="verified">Verified</string>
+
+    <string name="payment_successfuls">결제완료</string>
+    <string name="free_test_package_added">회원님이 구입하신 패캐지가 계정에 추가되었습니다. </string>
+    <string name="invoice_nos">인보이스 번호:  </string>
+    <string name="purchase_date">구입일시:  </string>
+    <string name="purchase_names">성함:  </string>
+    <string name="payment_methods">결제방법:  </string>
+    <string name="total_amounts">결제금액  </string>
+    <string name="earned_five_points">축하합니다. 회원님이 %1$s 리워드 포인트를 받으셨습니다.</string>
+
+    <string name="notification">알림</string>
+    <string name="delete_account">회원 탈퇴</string>
+
+    <string name="sure_close_result">결과창을 닫으시겠습니까?</string>
+    <string name="revert_back">이 관정은 되돌아갈 수 없습니다.</string>
+
+    <string name="edit_name">이름 편집</string>
+    <string name="please_enter_full_name">이름 입력하시오.</string>
+    <string name="Update">업데이트</string>
+
+    <string name="view_package">패캐지 보기</string>
+
+    <string name="last_5_test_scores">최근 5 시험점수</string>
+
+    <string name="enter_comment">Enter comment</string>
+
+
+    <string name="ubt_package">UBT 패캐지</string>
+    <string name="this_package_has_sets">이 패캐지에 %1$s 세트가 있습니다.</string>
+    <string name="package_includes">이 패캐지에 포함된 시험 세트는 다음과 같습니다:</string>
+
+    <string name="congratulation">축하합니다 </string>
+    <string name="successful_setup_account">You\’ve successfully set up your account.</string>
+    <string name="earned_five_point_signing">Earned 5 points for signing with us!</string>
+
+    <string name="no_purchase_list">회원님은 구매한 세트가 없습니다.</string>
+    <string name="no_data_list">No data available.</string>
+
+
+    <string name="want_to_logout">로그아웃하시겠어요?</string>
+    <string name="change_password_">암호 변경하신가요?</string>
+    <string name="want_to_change_password">암호 변경 원하지 않으신가요? 암호 변경을 위해 본인인증으로 이동하시오.</string>
+    <string name="want_to_delete_account">회원 탈퇴를 하시겠어요?</string>
+    <string name="delete_loose_account">회원 탈퇴하시면 LKWB에 있는 모든 정보를 잃으실 거에요..</string>
+
+
+    <string name="post_comment">Post Comment</string>
+
+    <string name="give_test">시험 시작</string>
+    <string name="free_for_premium_user">프리미엄 사용자는 무료</string>
+
+
+    <string name="notification_comment">&lt;b>%1$s&lt;/b> commented on your %2$s &lt;b>%3$s&lt;/b></string>
+    <string name="notification_reply">&lt;b>%1$s&lt;/b> replied on your comment on %2$s: &lt;b>%3$s&lt;/b></string>
+    <string name="notification_referral">Your Referral code was used and you have earned 10 reward points.</string>
+
+    <string name="now">방금</string>
+    <string name="seconds_ago">%1$s 몇 초 전에</string>
+    <string name="minute_ago">1 몇 분 전에</string>
+    <string name="minutes_ago">%1$s 몇 분 전에</string>
+    <string name="hour_ago">1 몇 시간 전에</string>
+    <string name="hours_ago">%1$s 몇 시간 전에</string>
+    <string name="yesterday">yesterday</string>
+    <string name="day_ago">%1$s 며칠 전에</string>
+    <string name="days_ago">%1$s 며칠 전에</string>
+    <string name="week_ago">1 몇 주 전에</string>
+    <string name="weeks_ago">%1$s 몇 주 전에</string>
+    <string name="month_ago">1 몇 월 전에</string>
+    <string name="months_ago">%1$s 몇 월 전에</string>
+    <string name="year_ago">1 몇 년 전에</string>
+    <string name="years_ago">%1$s 몇 년 전에</string>
+    <string name="in_the_future">in the future</string>
+
+    <string name="question_of">문항 %1$s 의 %2$s</string>
+    <string name="time_left">남은 시간</string>
+    <string name="news">New</string>
+
+    <string name="change_language">앱 언어 변경</string>
+    <string name="english">영어</string>
+    <string name="korean">한국어</string>
+
+    <string name="change_app_language_english">네팔어로 앱 언어를 변경하신가요?</string>
+    <string name="change_app_language_korean">영어로 앱 언어를 변경하신가요?</string>
+
+
+    <string name="buy_package_free">이 패키지를 구매하시겠어요?</string>
+    <string name="buy_package_esewa">이 패키지를 esewa로 구매하시겠어요?</string>
+    <string name="buy_package_khalti">이 패키지를 khalti로 구매하시겠어요?</string>
+    <string name="buy_package_reward">이 패키지를 리워드 포인트로 구매하시겠어요?</string>
+
+    <string name="buy_test_free">이 패키지를 구매하시겠어요? (무료)</string>
+    <string name="buy_test_esewa">이 패키지를 esewa로 구매하시겠어요?</string>
+    <string name="buy_test_khalti">이 패키지를 khalti로 구매하시겠어요?</string>
+    <string name="buy_test_reward">이 패키지를 리워드 포인트로 구매하시겠어요?</string>
+
+
+
+</resources>

@@ -1,0 +1,159 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="ubtResultHandler"
+            type="com.genesiswtech.lkwb.ui.ubtResult.view.IUBTResultView" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fillViewport="true"
+            android:fitsSystemWindows="true"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_20"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/correctTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:drawableLeft="@drawable/correct_answer_background"
+                        android:drawablePadding="15dp"
+                        android:text="@string/correct_answer"
+                        android:textColor="@color/sub_text"
+                        android:textFontWeight="500"
+                        app:fontFamily="@font/poppins_font_family" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txt_wrong_answer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_toRightOf="@+id/correctTV"
+                        android:drawableLeft="@drawable/wrong_answer_background"
+                        android:drawablePadding="15dp"
+                        android:text="@string/wrong_answer"
+                        android:textColor="@color/sub_text"
+                        android:textFontWeight="500"
+                        app:fontFamily="@font/poppins_font_family" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txt_wrong_answer"
+                        android:drawableLeft="@drawable/unsolved_question_background"
+                        android:drawablePadding="15dp"
+                        android:text="@string/unsolved_question"
+                        android:textColor="@color/sub_text"
+                        android:textFontWeight="500"
+                        app:fontFamily="@font/poppins_font_family" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/line_divider_grey" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/listeningTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginBottom="15dp"
+                            android:layout_toLeftOf="@+id/listeningExpandIBtn"
+                            android:text="@string/listening_result"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/header_text"
+                            android:textFontWeight="500"
+                            app:fontFamily="@font/poppins_font_family" />
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/listeningExpandIBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:background="@android:color/transparent"
+                            android:src="@drawable/ic_arrow_down" />
+
+                    </RelativeLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/listeningRV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/readingTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginBottom="15dp"
+                            android:layout_toLeftOf="@+id/readingExpandIBtn"
+                            android:text="@string/reading_result"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/header_text"
+                            android:textFontWeight="500"
+                            app:fontFamily="@font/poppins_font_family" />
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/readingExpandIBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:background="@android:color/transparent"
+                            android:src="@drawable/ic_arrow_down" />
+
+                    </RelativeLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/readingRV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/dimen_20">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dialogTitleTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/add_discussion"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/black"
+            android:textFontWeight="600"
+            app:fontFamily="@font/urbanist_font_family" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/closeBtn"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentRight="true"
+            android:background="@android:color/transparent"
+
+            android:src="@drawable/ic_close"
+            android:tint="@color/black" />
+
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/titleEdt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_15"
+        android:layout_marginBottom="@dimen/dimen_20"
+        android:background="@drawable/search_bg"
+        android:cursorVisible="true"
+        android:textCursorDrawable="@drawable/cursor_black"
+        android:hint="@string/discussion_title"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/black"
+        android:textColorHint="@color/text_hint"
+        android:textFontWeight="400"
+        app:fontFamily="@font/poppins_font_family" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/descriptionEdt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bg"
+        android:gravity="top"
+        android:hint="@string/what_thought"
+        android:minHeight="150dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/black"
+        android:textColorHint="@color/text_hint"
+        android:textCursorDrawable="@drawable/cursor_black"
+        android:textFontWeight="400"
+        app:fontFamily="@font/poppins_font_family" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_20">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/addDiscussionBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/button_blue_background"
+            android:text="@string/add_discussion"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textFontWeight="600"
+            app:fontFamily="@font/urbanist_font_family" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cancelBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dimen_15"
+            android:layout_toLeftOf="@+id/addDiscussionBtn"
+            android:background="@drawable/button_red_background"
+            android:text="@string/cancel"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textFontWeight="600"
+            app:fontFamily="@font/urbanist_font_family" />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="gradient_toolbar_start">#E6B2C0</color>
+    <color name="gradient_toolbar_center">#B3B7CB</color>
+    <color name="gradient_toolbar_end">#9AB8D0</color>
+
+    <color name="header_text">#00437B</color>
+    <color name="sub_text">#BF000000</color>
+    <color name="des_text">#000000</color>
+    <color name="note_text">#1A170202</color>
+    <color name="payment_success">#18C07A</color>
+
+    <color name="gradient_start">#FC96A5</color>
+    <color name="gradient_end">#A5BFD4</color>
+    <color name="text_hint">#8391A1</color>
+    <color name="button_blue">#00437B</color>
+    <color name="button_green">#008000</color>
+    <color name="button_red">#DA1A32</color>
+    <color name="login_with">#6A707C</color>
+    <color name="dont_have">#1E232C</color>
+
+    <color name="ubt_buy_premium_text">#856404</color>
+    <color name="ubt_buy_premium_bg">#FFEEBA</color>
+    <color name="ubt_buy_set_bg">#1A0177FB</color>
+    <color name="ubt_buy_cv_bg">#1A29CF6B</color>
+
+    <color name="line_color">#66708042</color>
+    <color name="dictionary_header">#00437B</color>
+    <color name="dictionary_sub">#BF000000</color>
+    <color name="dictionary_hint">#667080</color>
+
+    <color name="discover_list_title">#2C2C2C</color>
+    <color name="discover_list_sub">#BF000000</color>
+
+    <color name="dictionary_word_title">#180202</color>
+    <color name="dictionary_word_sub">#000000</color>
+
+    <color name="menu_bg">#00437C</color>
+
+    <color name="favourite_text">#1A0101</color>
+    <color name="line_divider_grey">#1A000000</color>
+
+    <color name="wrong_answer">#C7303C</color>
+    <color name="correct_answer">#00437B</color>
+    <color name="unsolved_question">#EEEEEE</color>
+    <color name="attempted_question">#4A1D0202</color>
+
+    <color name="text_color">#2C2C2C</color>
+    <color name="text_color_green">#18C07A</color>
+
+    <color name="et_background">#F7F8F9</color>
+    <color name="background_color">#F5F5F5</color>
+
+    <color name="account_name">#66B4B1F9</color>
+    <color name="account_email">#1AFFAF51</color>
+    <color name="account_password">#1A3BBED0</color>
+
+
+    <color name="transparent">#00000000</color>
+
+    <color name="notification_background">#C7303C</color>
+    <color name="service_ubt_background">#1AFC7891</color>
+    <color name="service_grammar_background">#1AFFAF51</color>
+    <color name="service_dictionary_background">#1A00D1FF</color>
+    <color name="service_discussion_background">#1A29CF6B</color>
+    <color name="service_blog_background">#1A35C2C1</color>
+
+    <color name="list_test_price">#80000000</color>
+
+    <color name="blog_title">#000000</color>
+    <color name="blog_description">#000000</color>
+    <color name="blog_time">#000000</color>
+
+
+    <color name="question_group">#EB000000</color>
+    <color name="question_main">#EB000000</color>
+    <color name="question_sub">#EB000000</color>
+    <color name="question_checkbox">#000000</color>
+    <color name="question_cv">#4DD9D9D9</color>
+
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="discussion_button_text">#333333</color>
+
+    <color name="colorPrimary">#00437B</color>
+    <color name="colorPrimaryDark">#00437B</color>
+
+    <color name="score_background">#DA1A32</color>
+
+    <color name="dialogBackground">#60000000</color>
+
+    <color name="platinum_start">#E3E4DF</color>
+    <color name="platinum_end">#E5E4E2</color>
+
+    <color name="gold_start">#FCF6BA</color>
+    <color name="gold_end">#AA771C</color>
+
+    <color name="silver_start">#D7D8D4</color>
+    <color name="silver_end">#868B96</color>
+    <color name="background">#F3F7FA</color>
+    <color name="ubt_blue">#EAE8FE</color>
+    <color name="ubt_yellow">#FFF2D0</color>
+    <color name="ubt_pink">#FDDEEE</color>
+
+    <!--
+    <color name="colorPrimary">#FC96A5</color>
+    <color name="colorPrimaryDark">#FC96A5</color>
+
+    -->
+    <color name="colorAccent">#FF4081</color>
+    <color name="black_effective">#2a2a2a</color>
+    <color name="colorPrimaryDarker">#FC96A5</color>
+    <color name="accent">#FFFFFF</color>
+
+    <color name="jet">#222222</color>
+    <color name="oil">#333333</color>
+    <color name="monsoon">#777777</color>
+    <color name="jumbo">#888888</color>
+    <color name="aluminum">#999999</color>
+    <color name="base">#AAAAAA</color>
+    <color name="iron">#CCCCCC</color>
+
+</resources>

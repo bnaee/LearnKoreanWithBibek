@@ -1,0 +1,190 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="menuHandler"
+            type="com.genesiswtech.lkwb.ui.menu.view.IMenuView" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/menu_bg"
+        tools:context=".ui.menu.MenuActivity">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:fitsSystemWindows="true"
+            android:layout_marginBottom="@dimen/dimen_30"
+            tools:ignore="MissingConstraints">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/headerLinear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fillViewport="true"
+                    android:paddingBottom="@dimen/dimen_50"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/closeBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:background="@android:color/transparent"
+                        android:onClick="@{menuHandler::onCloseClick}"
+                        android:padding="@dimen/dimen_10"
+                        android:src="@drawable/ic_close" />
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerViewMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/dimen_20"
+                        android:scrollbars="vertical" />
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dimen_2"
+                        android:layout_marginTop="@dimen/dimen_20"
+                        android:layout_marginBottom="20dp"
+                        android:background="@android:color/white" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dimen_20"
+                        android:text="@string/useful_links"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/white"
+                        android:textFontWeight="900"
+                        app:fontFamily="@font/urbanist_font_family" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/privacyPolicyTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{menuHandler::onPrivacyPolicyClick}"
+                        android:padding="@dimen/dimen_20"
+                        android:text="@string/privacy_policy"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/white"
+                        android:textFontWeight="500"
+                        app:fontFamily="@font/urbanist_font_family" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/termConditionTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{menuHandler::onTermsConditionsClick}"
+                        android:padding="@dimen/dimen_20"
+                        android:text="@string/terms_conditions"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/white"
+                        android:textFontWeight="500"
+                        app:fontFamily="@font/urbanist_font_family" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/faqTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{menuHandler::onFAQClick}"
+                        android:padding="@dimen/dimen_20"
+                        android:text="@string/faq"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/white"
+                        android:textFontWeight="500"
+                        app:fontFamily="@font/urbanist_font_family" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/contactUsTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{menuHandler::onContactUsClick}"
+                        android:padding="@dimen/dimen_20"
+                        android:text="@string/contact_us"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/white"
+                        android:textFontWeight="500"
+                        app:fontFamily="@font/urbanist_font_family" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/guideTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{menuHandler::onGuideClick}"
+                        android:padding="@dimen/dimen_20"
+                        android:text="@string/guide"
+                        android:visibility="gone"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/white"
+                        android:textFontWeight="500"
+                        app:fontFamily="@font/urbanist_font_family" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/wordCardTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{menuHandler::onWordCardClick}"
+                        android:padding="@dimen/dimen_20"
+                        android:visibility="gone"
+                        android:text="@string/word_card"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/white"
+                        android:textFontWeight="500"
+                        app:fontFamily="@font/urbanist_font_family" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_below="@+id/headerLinear"
+                    android:id="@+id/logOutBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_20"
+                    android:layout_marginEnd="@dimen/dimen_20"
+                    android:layout_marginBottom="@dimen/dimen_30"
+                    android:background="@drawable/button_red_background"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:onClick="@{menuHandler::onLogOutClick}"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dimen_15"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_logout" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/logout"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/white"
+                        android:textFontWeight="800"
+                        app:fontFamily="@font/poppins_font_family" />
+
+                </LinearLayout>
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

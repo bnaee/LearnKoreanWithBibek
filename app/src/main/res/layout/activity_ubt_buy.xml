@@ -1,0 +1,425 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="ubtBuyHandler"
+            type="com.genesiswtech.lkwb.ui.ubtBuy.view.IUBTBuyView" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <include
+            android:id="@+id/llProgressBar"
+            layout="@layout/layout_progress_bar_with_text"
+            android:visibility="gone" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fillViewport="true"
+            android:fitsSystemWindows="true"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/dimen_5">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/setDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_0"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="0dp"
+                    app:cardElevation="@dimen/dimen_5"
+                    app:cardMaxElevation="@dimen/dimen_6"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dimen_30"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/package_name"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/header_text"
+                                android:textFontWeight="400"
+                                app:fontFamily="@font/poppins_font_family" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/packageNameTV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimen_10"
+                                android:text="@string/sample_package_name"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textColor="@color/sub_text"
+                                android:textFontWeight="600"
+                                app:fontFamily="@font/poppins_font_family" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:background="@drawable/line_divider_grey" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dimen_30"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/package_details"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/header_text"
+                                android:textFontWeight="400"
+                                app:fontFamily="@font/poppins_font_family" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/packageDetailTV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimen_10"
+                                android:text="@string/sample_package_detail"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textColor="@color/sub_text"
+                                android:textFontWeight="600"
+                                app:fontFamily="@font/poppins_font_family" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_1"
+                            android:background="@drawable/line_divider_grey" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dimen_30"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/package_price"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/header_text"
+                                android:textFontWeight="400"
+                                app:fontFamily="@font/poppins_font_family" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/packagePriceTV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimen_10"
+                                android:text="@string/sample_price"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textColor="@color/sub_text"
+                                android:textFontWeight="600"
+                                app:fontFamily="@font/poppins_font_family" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_0"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/dimen_0"
+                    app:cardElevation="@dimen/dimen_5"
+                    app:cardMaxElevation="@dimen/dimen_6"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_15"
+                        android:layout_marginTop="@dimen/dimen_30"
+                        android:layout_marginRight="@dimen/dimen_15"
+                        android:layout_marginBottom="@dimen/dimen_30"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/packageDetail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/packageTitleTV"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/package_name"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:textColor="@color/button_blue"
+                                    android:textFontWeight="600"
+                                    app:fontFamily="@font/poppins_font_family" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/packagePricesTV"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:background="@drawable/ubt_price_background"
+                                    android:gravity="center"
+                                    android:text="Rs.800"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:textColor="@color/button_blue"
+                                    android:textFontWeight="500"
+                                    app:fontFamily="@font/poppins_font_family" />
+
+
+                            </RelativeLayout>
+
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/packageCountTV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/dimen_10"
+                                android:text="@string/this_package_has_sets"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textColor="@color/sub_text"
+                                android:textFontWeight="600"
+                                app:fontFamily="@font/poppins_font_family" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dimen_1"
+                                android:layout_marginBottom="@dimen/dimen_10"
+                                android:background="@drawable/line_divider_grey" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/dimen_10"
+                                android:text="@string/package_includes"
+                                android:textColor="@color/black"
+                                android:textFontWeight="400"
+                                app:fontFamily="@font/poppins_font_family" />
+
+                            <com.google.android.material.chip.ChipGroup
+                                android:id="@+id/setChipGroup"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="@dimen/dimen_10"
+                                android:theme="@style/Theme.MaterialComponents.Light"
+                                app:chipSpacingVertical="@dimen/dimen_15">
+
+                            </com.google.android.material.chip.ChipGroup>
+
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dimen_1"
+                                android:layout_marginTop="@dimen/dimen_10"
+                                android:layout_marginBottom="@dimen/dimen_10"
+                                android:background="@drawable/line_divider_grey" />
+
+                        </LinearLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/rewardInfoTV"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/dimen_20">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dimen_7"
+                                android:layout_marginTop="@dimen/dimen_7"
+                                android:background="@drawable/reward_red_background"
+                                android:orientation="vertical"
+                                android:padding="@dimen/dimen_20">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/rewardPointTV1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="@string/ubt_buy_note"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:textColor="@color/white"
+                                    android:textFontWeight="700"
+                                    app:fontFamily="@font/urbanist_font_family" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/dimen_7"
+                                android:background="@drawable/reward_blue_background"
+                                android:orientation="vertical"
+                                android:padding="@dimen/dimen_20">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/rewardPointTV"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:text="@string/ubt_buy_note"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:textColor="@color/white"
+                                    android:textFontWeight="700"
+                                    app:fontFamily="@font/urbanist_font_family" />
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/dimen_10"
+                            android:text="@string/you_can_use"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/sub_text"
+                            android:textFontWeight="400"
+                            app:fontFamily="@font/poppins_font_family" />
+
+                        <RadioGroup
+                            android:id="@+id/radio_group"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/esewaRB"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableLeft="@drawable/pay_esewa"
+                                android:drawablePadding="@dimen/dimen_5"
+                                android:text="@string/esewa"
+                                android:textColor="@color/sub_text"
+                                android:textFontWeight="400"
+                                android:theme="@style/MyRadioButton"
+                                app:fontFamily="@font/poppins_font_family" />
+
+                            <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/khaltiRB"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableLeft="@drawable/pay_khalti"
+                                android:drawablePadding="@dimen/dimen_5"
+                                android:text="@string/khalti"
+                                android:textColor="@color/sub_text"
+                                android:textFontWeight="400"
+                                android:theme="@style/MyRadioButton"
+                                app:fontFamily="@font/poppins_font_family" />
+
+                            <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/rewardPointRB"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableLeft="@drawable/pay_reward_point"
+                                android:drawablePadding="@dimen/dimen_5"
+                                android:text="@string/reward_point"
+                                android:textColor="@color/sub_text"
+                                android:textFontWeight="400"
+                                android:theme="@style/MyRadioButton"
+                                app:fontFamily="@font/poppins_font_family" />
+
+                            <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/freeRB"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableLeft="@drawable/pay_free"
+                                android:drawablePadding="@dimen/dimen_5"
+                                android:text="@string/free"
+                                android:textColor="@color/sub_text"
+                                android:textFontWeight="400"
+                                android:theme="@style/MyRadioButton"
+                                app:fontFamily="@font/poppins_font_family" />
+
+
+                        </RadioGroup>
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_25"
+                            android:layout_marginBottom="@dimen/dimen_15"
+                            android:orientation="vertical">
+
+                            <com.khalti.widget.KhaltiButton
+                                android:id="@+id/KhaltiBtn"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/button_blue_background_khalti"
+                                android:onClick="@{ubtBuyHandler::onProceedButtonClick}"
+                                android:visibility="visible"
+                                app:khalti_button_style="basic"
+                                app:text="Buy" />
+
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/proceedBtn"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/button_blue_background"
+                                android:text="@string/proceed"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textFontWeight="600"
+                                android:visibility="gone"
+                                app:fontFamily="@font/urbanist_font_family" />
+
+                        </RelativeLayout>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/backBtn"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/button_white_background"
+                            android:onClick="@{ubtBuyHandler::onBackButtonClick}"
+                            android:text="@string/back"
+                            android:textAllCaps="false"
+                            android:textColor="@color/header_text"
+                            android:textFontWeight="600"
+                            app:fontFamily="@font/urbanist_font_family" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

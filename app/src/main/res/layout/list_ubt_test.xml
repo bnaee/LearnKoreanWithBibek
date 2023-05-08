@@ -1,0 +1,211 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_0"
+        android:layout_marginRight="@dimen/dimen_0">
+
+        <RelativeLayout
+            android:id="@+id/layoutTop"
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/ubtCV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layoutTop"
+            app:cardCornerRadius="@dimen/dimen_0"
+            app:cardElevation="@dimen/dimen_0"
+            app:cardMaxElevation="@dimen/dimen_0"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true"
+            tools:ignore="MissingConstraints">
+
+            <RelativeLayout
+                android:id="@+id/ubtRL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_15"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@+id/rel"
+                        android:orientation="horizontal">
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ubt_icon_background"
+                            android:src="@drawable/ic_ubt_test" />
+
+                        <View
+                            android:layout_width="@dimen/dimen_1"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dimen_5"
+                            android:layout_marginRight="@dimen/dimen_5"
+                            android:background="@color/line_divider_grey"
+                            android:visibility="invisible" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/ubtTitleTV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/dimen_15"
+                                android:text="@string/topik_1"
+                                android:textColor="@color/black"
+                                android:textFontWeight="600"
+                                app:fontFamily="@font/poppins_font_family" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/ubtPriceTagTV"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:text="@string/sample_new_price"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:textColor="@color/list_test_price"
+                                    android:textFontWeight="400"
+                                    android:textSize="@dimen/dimen_12"
+                                    app:fontFamily="@font/poppins_font_family" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/ubtPriceTV"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/dimen_5"
+                                    android:gravity="center"
+                                    android:paddingBottom="@dimen/dimen_5"
+                                    android:text="10 "
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:textColor="@color/header_text"
+                                    android:textFontWeight="700"
+                                    android:textStyle="italic"
+
+                                    />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/ubtBasePriceTV"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="@dimen/dimen_5"
+
+                                    android:layout_toRightOf="@+id/ubtPriceTV"
+                                    android:text="10"
+                                    android:textColor="@color/red"
+                                    android:textFontWeight="400"
+                                    android:textSize="@dimen/dimen_12"
+                                    app:fontFamily="@font/poppins_font_family" />
+
+                            </LinearLayout>
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/ubtDescriptionTV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/dimen_15"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/sub_text"
+                                android:textFontWeight="400"
+                                android:visibility="gone"
+                                app:fontFamily="@font/poppins_font_family" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/rel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:orientation="vertical">
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/ubtCountTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ubt_set_blue_background"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="@string/test_now"
+                            android:textColor="@color/white"
+                            android:textFontWeight="500"
+                            android:textSize="@dimen/dimen_10"
+                            app:fontFamily="@font/poppins_font_family" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ubtNewIV"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="-4dp"
+                    android:layout_marginRight="-3dp"
+                    android:src="@drawable/ic_ubt_new_test"
+                    android:visibility="gone" />
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/newTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/ubtCV"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dimen_15"
+            android:layout_marginBottom="-15dp"
+            android:background="@drawable/ubt_new_background"
+            android:text="@string/news"
+            android:textColor="@color/white"
+            android:textFontWeight="600"
+            android:textSize="@dimen/dimen_10"
+            android:translationZ="@dimen/dimen_90"
+            android:visibility="invisible"
+            app:fontFamily="@font/poppins_font_family"
+            tools:ignore="MissingConstraints" />
+
+    </RelativeLayout>
+
+</layout>

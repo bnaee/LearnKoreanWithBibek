@@ -1,0 +1,106 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/toolbarRel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actionBarTitleTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/actionBarHomeRel"
+            android:paddingStart="@dimen/dimen_15"
+            android:text="@string/home"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/white"
+            android:textFontWeight="700"
+            app:fontFamily="@font/urbanist_font_family" />
+
+        <RelativeLayout
+            android:id="@+id/actionBarHomeRel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/actionBarProfileIV"
+                android:layout_width="@dimen/dimen_40"
+                android:layout_height="@dimen/dimen_40"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_name"
+                app:civ_border_color="@color/header_text"
+                app:civ_border_width="@dimen/dimen_2" />
+
+            <LinearLayout
+                android:id="@+id/actionBarName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/actionBarProfileIV"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actionBarFullNameTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sample_name"
+                    android:textColor="@color/black"
+                    android:textFontWeight="600"
+                    app:fontFamily="@font/urbanist_font_family" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actionBarEmailTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sample_email"
+                    android:textColor="@color/button_blue"
+                    android:textFontWeight="400"
+                    app:fontFamily="@font/urbanist_font_family" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/actionBarSettingIBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/menu_background"
+                android:src="@drawable/ic_setting"
+                android:visibility="gone" />
+
+
+            <include
+                layout="@layout/layout_notification"
+                android:visibility="visible" />
+
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/actionBarMenuIBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/menu_background"
+                android:src="@drawable/ic_menu_more" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_tab_main"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.genesiswtech.lkwb.ui.home.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/ubtTestFragment"
+        android:name="com.genesiswtech.lkwb.ui.ubt.UBTTestFragment"
+        android:label="@string/ubt_test"
+        tools:layout="@layout/fragment_ubt_test" />
+
+    <fragment
+        android:id="@+id/grammarFragment"
+        android:name="com.genesiswtech.lkwb.ui.grammar.GrammarFragment"
+        android:label="@string/grammar"
+        tools:layout="@layout/fragment_grammar" />
+
+    <fragment
+        android:id="@+id/dictionaryFragment"
+        android:name="com.genesiswtech.lkwb.ui.dictionary.DictionaryFragment"
+        android:label="@string/dictionary"
+        tools:layout="@layout/fragment_dictionary" />
+
+    <fragment
+        android:id="@+id/blogFragment"
+        android:name="com.genesiswtech.lkwb.ui.blog.BlogFragment"
+        android:label="@string/blog"
+        tools:layout="@layout/fragment_blog" />
+
+</navigation>

@@ -1,0 +1,213 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="otphandler"
+            type="com.genesiswtech.lkwb.ui.otpVerification.view.IOTPVerificationView" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_background">
+
+        <include
+            android:id="@+id/llProgressBar"
+            layout="@layout/layout_progress_bar_with_text"
+            android:visibility="gone" />
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:fitsSystemWindows="true"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/dimen_25"
+                android:paddingRight="@dimen/dimen_25">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/headerTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/dimen_80"
+                    android:paddingBottom="@dimen/dimen_20"
+                    android:text="@string/otp_verification"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/white"
+                    android:textFontWeight="700"
+                    app:fontFamily="@font/urbanist_font_family" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/subTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/dimen_70"
+                    android:text="@string/enter_the_verification"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@android:color/white"
+                    android:textFontWeight="500"
+                    app:fontFamily="@font/urbanist_font_family" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    android:layout_marginBottom="@dimen/dimen_20"
+                    android:weightSum="100">
+
+                    <LinearLayout
+                        android:layout_width="@dimen/dimen_75"
+                        android:layout_height="@dimen/dimen_75"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        android:layout_weight="25"
+                        android:background="@drawable/otp_background"
+                        android:padding="@dimen/dimen_15">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/otp1Edt"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:hint="&#x2731;"
+                            android:inputType="phone"
+                            android:maxLength="1"
+                            android:textAlignment="center"
+                            android:textCursorDrawable="@drawable/cursor_black"
+                            app:addTextChangedListener="@{otphandler.onFirstOTPTextWatcher}"
+                            android:textFontWeight="700"
+                            app:fontFamily="@font/urbanist_font_family" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="@dimen/dimen_75"
+                        android:layout_height="@dimen/dimen_75"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        android:layout_weight="25"
+                        android:background="@drawable/otp_background">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/otp2Edt"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:hint="&#x2731;"
+                            android:inputType="phone"
+                            android:textCursorDrawable="@drawable/cursor_black"
+                            android:maxLength="1"
+                            android:textAlignment="center"
+                            android:textFontWeight="700"
+                            app:addTextChangedListener="@{otphandler.onSecondOTPTextWatcher}"
+                            app:fontFamily="@font/urbanist_font_family" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="@dimen/dimen_75"
+                        android:layout_height="@dimen/dimen_75"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        android:layout_weight="25"
+                        android:background="@drawable/otp_background">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/otp3Edt"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:hint="&#x2731;"
+                            android:inputType="phone"
+                            android:maxLength="1"
+                            android:textCursorDrawable="@drawable/cursor_black"
+                            android:textAlignment="center"
+                            android:textFontWeight="700"
+                            app:addTextChangedListener="@{otphandler.onThirdOTPTextWatcher}"
+                            app:fontFamily="@font/urbanist_font_family" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="@dimen/dimen_75"
+                        android:layout_height="@dimen/dimen_75"
+                        android:layout_marginLeft="@dimen/dimen_10"
+                        android:layout_weight="25"
+                        android:background="@drawable/otp_background">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/otp4Edt"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:hint="&#x2731;"
+                            android:inputType="phone"
+                            android:textCursorDrawable="@drawable/cursor_black"
+                            app:addTextChangedListener="@{otphandler.onFourthOTPTextWatcher}"
+                            android:maxLength="1"
+                            android:textAlignment="center"
+                            android:textFontWeight="700"
+                            app:fontFamily="@font/urbanist_font_family" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/verifyBtn"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_30"
+                    android:background="@drawable/button_blue_background"
+                    android:text="@string/verify"
+                    android:textAllCaps="false"
+                    android:onClick="@{otphandler::onOTPVerifyClick}"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/white"
+                    android:textFontWeight="700"
+                    app:fontFamily="@font/urbanist_font_family" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center"
+                    android:gravity="bottom"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/dimen_60"
+                    android:paddingBottom="@dimen/dimen_40">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/didnt_received_code"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/white"
+                        android:textFontWeight="500"
+                        app:fontFamily="@font/urbanist_font_family" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/registerTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{otphandler::onOTPResendClick}"
+                        android:paddingLeft="@dimen/dimen_4"
+                        android:text="@string/resend"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/header_text"
+                        android:textFontWeight="700"
+                        app:fontFamily="@font/urbanist_font_family" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

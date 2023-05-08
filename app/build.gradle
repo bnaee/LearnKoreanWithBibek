@@ -1,0 +1,201 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
+}
+
+android {
+    namespace 'com.genesiswtech.lkwb'
+    compileSdk 32
+    defaultConfig {
+        applicationId "com.genesiswtech.lkwb"
+        minSdk 26
+        targetSdk 32
+        versionCode 3
+        versionName "1.0.1"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+
+    signingConfigs {
+        live {
+            keyAlias RELEASE_KEY_ALIAS
+            keyPassword RELEASE_KEY_PASSWORD
+            storeFile file("/Volumes/BACKUP/Android/KotlinWorkspace/LearnKoreanWithBibek/app/LKWBKeyStore.jks")
+            storePassword RELEASE_STORE_PASSWORD
+        }
+    }
+
+    buildTypes {
+        release {
+            debuggable false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            // signingConfig signingConfigs.live
+        }
+
+        debug {
+            debuggable true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//            signingConfig signingConfigs.live
+        }
+    }
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+    }
+
+    flavorDimensions "default"
+    productFlavors {
+        dev {
+            dimension "default"
+            applicationId "com.genesiswtech.lkwb"
+            buildConfigField("String", "BACKEND_DEBUG", "\"dev.lkwb.com.np\"")
+            buildConfigField("String", "PROTOCOL_DEBUG", "\"https\"")
+            buildConfigField("String", "FOLDER_DEBUG", "\"LKWB\"")
+
+            buildConfigField("String", "BACKEND_RELEASE", "\"dev.lkwb.com.np\"")
+            buildConfigField("String", "PROTOCOL_RELEASE", "\"https\"")
+            buildConfigField("String", "FOLDER_RELEASE", "\"LKWB\"")
+
+//            resValue "string", "facebook_app_id", "1341775266585111"
+//            resValue "string", "facebook_login_protocol_scheme", "fb1341775266585111"
+//            resValue "string", "facebook_client_token", "4d443d9759353192b1ee2c3c49a5c1c2"
+
+            resValue "string", "google_client_id", ""
+
+            resValue "string", "esewa_merchant_id", "JB0BBQ4aD0UqIThFJwAKBgAXEUkEGQUBBAwdOgABHD4DChwUAB0R"
+            resValue "string", "esewa_secret_key", "BhwIWQQADhIYSxILExMcAgFXFhcOBwAKBgAXEQ=="
+            resValue "string", "esewa_callback_url", "https://dev.lkwb.com.np/payment/confirmation"
+
+            resValue "string", "khalti_merchant_secret", "test_public_key_25d9458e77ce47b0a339a339fc678d02"
+
+            versionCode 3
+            versionName "1.0.1"
+        }
+
+        live {
+            dimension "default"
+            applicationId "com.genesiswtech.lkwb"
+            setProperty("archivesBaseName", "LKWB-" + "VersionCode-" + defaultConfig.versionCode + "-VersionName-" + defaultConfig.versionName)
+//           signingConfig signingConfigs.live
+            buildConfigField("String", "BACKEND_DEBUG", "\"admin.lkwb.com.np\"")
+            buildConfigField("String", "PROTOCOL_DEBUG", "\"https\"")
+            buildConfigField("String", "FOLDER_DEBUG", "\"LKWB\"")
+
+            buildConfigField("String", "BACKEND_RELEASE", "\"admin.lkwb.com.np\"")
+            buildConfigField("String", "PROTOCOL_RELEASE", "\"https\"")
+            buildConfigField("String", "FOLDER_RELEASE", "\"LKWB\"")
+
+//            resValue "string", "facebook_app_id", "1341775266585111"
+//            resValue "string", "facebook_login_protocol_scheme", "fb1341775266585111"
+//            resValue "string", "facebook_client_token", "4d443d9759353192b1ee2c3c49a5c1c2"
+
+            resValue "string", "google_client_id", ""
+
+            resValue "string", "esewa_merchant_id", "KRYEBQ9TIAoLABILVxYaHw1ZJxoHEgpJBRAVCQ=="
+            resValue "string", "esewa_secret_key", "WBYWEhYSRSA6Kj4oMjMwLks1IDI3OU84JDc8JD1LNSgxLi4="
+            resValue "string", "esewa_callback_url", "https://admin.lkwb.com.np/payment/confirmation"
+
+            resValue "string", "khalti_merchant_secret", "live_public_key_8bd89ac44b954b27b96188f59ea9c93f"
+
+            versionCode 3
+            versionName "1.0.1"
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.databinding:databinding-runtime:7.3.1'
+    implementation files('libs/eSewaSdk.aar')
+    implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.9.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.4.1'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.4.1'
+
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.9.0"
+
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation "com.squareup.okhttp3:okhttp:3.10.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:3.10.0"
+// these two lines are added for dagger
+
+    implementation 'com.google.dagger:dagger:2.15'
+    kapt 'com.google.dagger:dagger-compiler:2.15'
+    kapt 'com.google.dagger:dagger-android-processor:2.15'
+
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+
+    implementation 'com.google.android.material:material:1.9.0-alpha02'
+
+    implementation "io.insert-koin:koin-android:3.3.0"
+
+    implementation 'com.facebook.android:facebook-login:5.15.3'
+
+    implementation 'com.jjoe64:graphview:4.2.2'
+
+    implementation 'com.google.android.gms:play-services-auth:20.4.1'
+
+    implementation 'io.github.bytebeats:compose-charts:0.1.2'
+
+    implementation 'com.github.lecho:hellocharts-library:1.5.8@aar'
+
+    implementation("com.khalti:khalti-android:2.01.02") {
+        transitive = true
+    }
+
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
+    implementation 'com.google.android.gms:play-services-ads:22.0.0'
+
+    //firebase dependencies
+    // Import the Firebase BoM
+    implementation platform('com.google.firebase:firebase-bom:30.1.0')
+
+    // Add the dependency for the Firebase SDK for Google Analytics
+    // When using the BoM, don't specify versions in Firebase dependencies
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-config-ktx'
+
+    // Add the dependencies for any other desired Firebase products
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-analytics'
+
+}
+
+
+
+

@@ -1,0 +1,307 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="registerhandler"
+            type="com.genesiswtech.lkwb.ui.register.view.IRegisterView" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_background">
+
+        <include
+            android:id="@+id/llProgressBar"
+            layout="@layout/layout_progress_bar_with_text"
+            android:visibility="gone" />
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fillViewport="true"
+            android:fitsSystemWindows="true"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/dimen_25"
+                android:paddingTop="@dimen/dimen_60"
+                android:paddingRight="@dimen/dimen_25">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/registerCL"
+                    android:layout_width="@dimen/dimen_100"
+                    android:layout_height="@dimen/dimen_100"
+                    android:onClick="@{registerhandler::onRegisterCLClick}">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/userIV"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/register_image_background"
+                        android:padding="@dimen/dimen_5"
+                        android:src="@drawable/ic_register" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/cameraIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/register_camera_background"
+                        android:padding="@dimen/dimen_10"
+                        android:src="@drawable/ic_camera"
+                        app:layout_constraintBottom_toBottomOf="@+id/userIV"
+                        app:layout_constraintEnd_toEndOf="@+id/userIV" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_40"
+                    android:gravity="center"
+                    android:text="@string/register_new_user"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@android:color/white"
+                    android:textFontWeight="700"
+                    app:fontFamily="@font/urbanist_font_family" />
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/NameEdt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_background"
+                    android:hint="@string/full_name"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/text_hint"
+                    android:textCursorDrawable="@drawable/cursor_black"
+                    android:textFontWeight="500"
+                    app:fontFamily="@font/urbanist_font_family" />
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/emailEdt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_25"
+                    android:layout_marginBottom="@dimen/dimen_25"
+                    android:background="@drawable/edittext_background"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/text_hint"
+                    android:textCursorDrawable="@drawable/cursor_black"
+                    android:textFontWeight="500"
+                    app:fontFamily="@font/urbanist_font_family" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_25"
+                    android:background="@drawable/edittext_background">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/passwordEdt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/passwordToggleIV"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/password"
+                        android:inputType="textPassword"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/text_hint"
+                        android:textCursorDrawable="@drawable/cursor_black"
+                        android:textFontWeight="500"
+                        app:fontFamily="@font/urbanist_font_family" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/passwordToggleIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:onClick="@{registerhandler::onPasswordToggleClick}"
+                        android:src="@drawable/ic_password_toggle" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_25"
+                    android:background="@drawable/edittext_background">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/confirmPasswordEdt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/confirmPasswordToggleIV"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/confirm_password"
+                        android:inputType="textPassword"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/text_hint"
+                        android:textCursorDrawable="@drawable/cursor_black"
+                        android:textFontWeight="500"
+                        app:fontFamily="@font/urbanist_font_family" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/confirmPasswordToggleIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:onClick="@{registerhandler::onConfirmPasswordToggleClick}"
+                        android:src="@drawable/ic_password_toggle" />
+
+                </RelativeLayout>
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/referCodeEdt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_background"
+                    android:hint="@string/refer_code"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/text_hint"
+                    android:textCursorDrawable="@drawable/cursor_black"
+                    android:textFontWeight="500"
+                    app:fontFamily="@font/urbanist_font_family" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_register"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_25"
+                    android:layout_marginBottom="@dimen/dimen_25"
+                    android:background="@drawable/button_blue_background"
+                    android:onClick="@{registerhandler::onRegisterButtonClick}"
+                    android:padding="0dp"
+                    android:text="@string/register"
+                    android:textAllCaps="false"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/white"
+                    android:textFontWeight="600"
+                    app:fontFamily="@font/urbanist_font_family" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_25"
+                    android:layout_marginBottom="@dimen/dimen_25"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dimen_1"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@+id/loginWithTV"
+                        android:background="@drawable/line_divider" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/loginWithTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="@dimen/dimen_5"
+                        android:layout_marginTop="@dimen/dimen_5"
+                        android:layout_marginEnd="@dimen/dimen_5"
+                        android:layout_marginBottom="@dimen/dimen_5"
+                        android:gravity="center"
+                        android:text="@string/or_sign_up_with"
+                        android:textColor="@color/login_with"
+                        android:textFontWeight="600"
+                        app:fontFamily="@font/urbanist_font_family" />
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dimen_1"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/loginWithTV"
+                        android:background="@drawable/line_divider" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/fbIBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/imagebutton_background"
+                        android:padding="@dimen/dimen_20"
+                        android:onClick="@{registerhandler::onFBLoginButtonClick}"
+                        android:src="@drawable/ic_facebook" />
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/googleIBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_25"
+                        android:layout_marginRight="@dimen/dimen_25"
+                        android:onClick="@{registerhandler::onGoogleLoginButtonClick}"
+                        android:background="@drawable/imagebutton_background"
+                        android:padding="@dimen/dimen_20"
+                        android:src="@drawable/ic_google" />
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/appleIBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/imagebutton_background"
+                        android:padding="@dimen/dimen_20"
+                        android:src="@drawable/ic_apple"
+                        android:visibility="gone" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/dimen_60"
+                    android:paddingBottom="@dimen/dimen_40">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/already_have_an_account"
+                        android:textColor="@color/white"
+                        android:textFontWeight="500"
+                        app:fontFamily="@font/urbanist_font_family" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/loginTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{registerhandler::onLoginClick}"
+                        android:paddingLeft="@dimen/dimen_4"
+                        android:text="@string/login"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/header_text"
+                        android:textFontWeight="700"
+                        app:fontFamily="@font/urbanist_font_family" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

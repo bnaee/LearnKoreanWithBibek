@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_tab_home"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/ubtTestFragment"
+        android:icon="@drawable/ic_tab_ubt_test"
+        app:itemIconSize="50dp"
+        android:title="@string/ubt_test" />
+    <item
+        android:id="@+id/grammarFragment"
+        android:icon="@drawable/ic_tab_grammar"
+        android:title="@string/grammar" />
+    <item
+        android:id="@+id/dictionaryFragment"
+        android:icon="@drawable/ic_tab_dictionary"
+        android:title="@string/dictionary" />
+
+    <item
+        android:id="@+id/discussionFragment"
+        android:icon="@drawable/ic_tab_discussion"
+        android:title="@string/discussion" />
+
+    <!--
+    <item
+        android:id="@+id/blogFragment"
+        android:icon="@drawable/ic_tab_blog"
+        android:title="@string/blog" />
+        -->
+
+
+</menu>

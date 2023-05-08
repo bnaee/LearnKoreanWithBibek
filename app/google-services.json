@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "784898974527",
+    "project_id": "lkwb-76712",
+    "storage_bucket": "lkwb-76712.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784898974527:android:5e32358e0b21d269e2698a",
+        "android_client_info": {
+          "package_name": "com.genesiswtech.lkwb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "784898974527-dl3ivb721cs7vjs40t0bu9ofee0a24t3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBV_gi3UpKKZ_QH-QkrpC97G1Djde5vc3A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "784898974527-dl3ivb721cs7vjs40t0bu9ofee0a24t3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "784898974527-s3nosid3srsahfciaamkn6s2a99c01sl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.genesiswtech.lkwb"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

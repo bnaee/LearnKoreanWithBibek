@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dimen_20">
+
+    <FrameLayout
+        android:id="@+id/numberFL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/questionCorrectNumberTV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/correct_answer_background"
+            android:clickable="false"
+            android:gravity="center"
+            android:text="1"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/white"
+            android:textFontWeight="700"
+            android:visibility="gone"
+            app:fontFamily="@font/urbanist_font_family" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/questionWrongNumberTV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/wrong_answer_background"
+            android:clickable="false"
+            android:gravity="center"
+            android:text="1"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/white"
+            android:textFontWeight="700"
+            android:visibility="gone"
+            app:fontFamily="@font/urbanist_font_family" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/questionUnsolvedNumberTV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/unsolved_question_background"
+            android:clickable="false"
+            android:gravity="center"
+            android:text="1"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/correct_answer"
+            android:textFontWeight="700"
+            android:visibility="gone"
+            app:fontFamily="@font/urbanist_font_family" />
+
+    </FrameLayout>
+</LinearLayout>
+

@@ -1,0 +1,254 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="discussionDetailHandler"
+            type="com.genesiswtech.lkwb.ui.discussionDetail.view.IDiscussionDetailView" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <include
+            android:id="@+id/llProgressBar"
+            layout="@layout/layout_progress_bar_with_text"
+            android:visibility="gone" />
+
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/discussionDetailPage"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:fitsSystemWindows="true"
+                tools:ignore="MissingConstraints">
+
+                <LinearLayout
+                    android:id="@+id/discussionDetailLL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_5"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dimen_0"
+                        app:cardCornerRadius="@dimen/dimen_5"
+                        app:cardElevation="@dimen/dimen_10"
+                        app:cardMaxElevation="@dimen/dimen_12"
+                        app:cardPreventCornerOverlap="true"
+                        app:cardUseCompatPadding="true">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/dimen_20">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/picIV"
+                                android:layout_width="@dimen/dimen_60"
+                                android:layout_height="@dimen/dimen_60"
+                                android:src="@drawable/ic_register"
+                                android:tintMode="@color/header_text" />
+
+                            <LinearLayout
+                                android:id="@+id/linear"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dimen_15"
+                                android:layout_toRightOf="@+id/picIV"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/titleTV"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:textColor="@color/header_text"
+                                    android:textFontWeight="600"
+                                    app:fontFamily="@font/poppins_font_family" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/postNameTV"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="@dimen/dimen_5"
+                                        android:singleLine="true"
+                                        android:textColor="@color/black"
+                                        android:textFontWeight="600"
+                                        app:fontFamily="@font/urbanist_font_family" />
+
+                                    <View
+                                        android:layout_width="@dimen/dimen_2"
+                                        android:layout_height="@dimen/dimen_20"
+                                        android:layout_marginLeft="@dimen/dimen_10"
+                                        android:layout_marginRight="@dimen/dimen_10"
+                                        android:background="@color/black" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/timeTV"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="@dimen/dimen_10"
+                                        android:singleLine="true"
+                                        android:textColor="@color/black"
+                                        android:textFontWeight="500"
+                                        app:fontFamily="@font/urbanist_font_family" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/shareTV"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:drawableLeft="@drawable/ic_share_discussion"
+                                        android:drawablePadding="@dimen/dimen_5"
+                                        android:onClick="@{discussionDetailHandler::onDiscussionShareClick}"
+                                        android:text="@string/share"
+                                        android:textColor="@color/discussion_button_text"
+                                        android:textFontWeight="600"
+                                        app:fontFamily="@font/urbanist_font_family" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/editTV"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/dimen_15"
+                                        android:layout_marginRight="@dimen/dimen_15"
+                                        android:drawableLeft="@drawable/ic_edit_discussion"
+                                        android:drawablePadding="@dimen/dimen_5"
+                                        android:onClick="@{discussionDetailHandler::onDiscussionEditClick}"
+                                        android:text="@string/edit"
+                                        android:textColor="@color/discussion_button_text"
+                                        android:textFontWeight="600"
+                                        app:fontFamily="@font/urbanist_font_family" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/deleteTV"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:drawableLeft="@drawable/ic_delete_discussion"
+                                        android:drawablePadding="@dimen/dimen_5"
+                                        android:onClick="@{discussionDetailHandler::onDiscussionDeleteClick}"
+                                        android:text="@string/delete"
+                                        android:textColor="@color/discussion_button_text"
+                                        android:textFontWeight="600"
+                                        app:fontFamily="@font/urbanist_font_family" />
+
+                                </LinearLayout>
+
+                                <View
+                                    android:id="@+id/view"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dimen_1"
+                                    android:layout_below="@+id/linear"
+                                    android:layout_marginTop="@dimen/dimen_10"
+                                    android:layout_marginBottom="@dimen/dimen_10"
+                                    android:background="@drawable/line_divider_grey" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/descriptionTV"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/dimen_5"
+                                    android:textColor="@color/black"
+                                    android:textFontWeight="400"
+                                    app:fontFamily="@font/poppins_font_family" />
+
+
+                            </LinearLayout>
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/commentEdt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/linear"
+                                android:layout_marginTop="@dimen/dimen_10"
+                                android:layout_marginBottom="@dimen/dimen_15"
+                                android:background="@drawable/search_bg"
+                                android:gravity="top"
+                                android:hint="@string/add_a_comment"
+                                android:minHeight="125dp"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/text_hint"
+                                android:textCursorDrawable="@drawable/cursor_black"
+                                android:textFontWeight="400"
+                                app:fontFamily="@font/poppins_font_family" />
+
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/addDiscussionBtn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/commentEdt"
+                                android:background="@drawable/button_blue_background"
+                                android:onClick="@{discussionDetailHandler::onAddCommentClick}"
+                                android:text="@string/add_comment"
+                                android:textAllCaps="false"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/white"
+                                android:textFontWeight="600"
+                                app:fontFamily="@font/urbanist_font_family" />
+
+
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/noDataTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginTop="@dimen/dimen_50"
+                        android:gravity="center"
+                        android:text="@string/no_data_list"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/black"
+                        android:textFontWeight="500"
+                        android:translationZ="@dimen/dimen_90"
+                        android:visibility="gone"
+                        app:fontFamily="@font/urbanist_font_family" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/commentRV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <ProgressBar
+                        android:id="@+id/bottomProgressBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:indeterminateTint="@color/header_text"
+                        android:visibility="invisible" />
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

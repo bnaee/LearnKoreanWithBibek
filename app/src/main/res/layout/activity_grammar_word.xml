@@ -1,0 +1,498 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="grammarWordHandler"
+            type="com.genesiswtech.lkwb.ui.grammarWord.view.IGrammarWordView" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <include
+            android:id="@+id/llProgressBar"
+            layout="@layout/layout_progress_bar_with_text"
+            android:visibility="gone" />
+
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:fitsSystemWindows="true"
+            android:layout_above="@+id/adView"
+            app:layout_constraintBottom_toTopOf="@+id/adView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_default="wrap"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:ignore="MissingConstraints">
+
+
+            <LinearLayout
+                android:id="@+id/grammarWordLinear"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/dimen_5"
+                android:visibility="gone">
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/ubt_blue"
+                    app:cardCornerRadius="@dimen/dimen_5"
+                    app:cardElevation="@dimen/dimen_5"
+                    app:cardMaxElevation="@dimen/dimen_6"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dimen_20">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/dimen_15"
+                                android:layout_toLeftOf="@+id/linear">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/grammarWordTitleTV"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="@dimen/dimen_15"
+                                    android:drawableRight="@drawable/ic_sound"
+                                    android:drawablePadding="@dimen/dimen_15"
+                                    android:gravity="center"
+                                    android:onClick="@{grammarWordHandler::onWordSoundButtonClick}"
+                                    android:text="@string/word_title"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:textColor="@color/header_text"
+                                    android:textFontWeight="600"
+                                    app:fontFamily="@font/poppins_font_family" />
+
+                                <androidx.appcompat.widget.AppCompatImageButton
+                                    android:id="@+id/wordSoundIBtn"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toEndOf="@+id/grammarWordTitleTV"
+                                    android:background="@android:color/transparent"
+                                    android:src="@drawable/ic_sound"
+                                    android:visibility="gone" />
+                            </RelativeLayout>
+
+                            <LinearLayout
+                                android:id="@+id/linear"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatImageButton
+                                    android:id="@+id/wordShareIBtn"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginRight="@dimen/dimen_10"
+                                    android:background="@android:color/transparent"
+                                    android:onClick="@{grammarWordHandler::onWordShareButtonClick}"
+                                    android:src="@drawable/ic_share" />
+
+                                <androidx.appcompat.widget.AppCompatImageButton
+                                    android:id="@+id/wordFavouriteIBtn"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:background="@android:color/transparent"
+                                    android:onClick="@{grammarWordHandler::onWordFavouriteButtonClick}"
+                                    android:src="@drawable/ic_favourite" />
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/grammarWordCV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/ubt_yellow"
+                    app:cardCornerRadius="@dimen/dimen_5"
+                    app:cardElevation="@dimen/dimen_5"
+                    app:cardMaxElevation="@dimen/dimen_6"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dimen_20">
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/meaning"
+                            android:textColor="@color/header_text"
+                            android:textFontWeight="600"
+                            app:fontFamily="@font/poppins_font_family" />
+
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"> <!-- collapse the first column of the table row-->
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:drawableLeft="@drawable/icon_korea"
+                                    android:drawablePadding="10dp"
+                                    android:text="@string/korean"
+                                    android:textColor="@color/black"
+                                    android:textFontWeight="600"
+                                    app:fontFamily="@font/poppins_font_family" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/meaningKoreanTV"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:justificationMode="inter_word"
+                                    android:lineSpacingMultiplier="1.3"
+                                    android:singleLine="false"
+                                    android:text="@string/na"
+                                    android:textColor="@color/dictionary_word_title"
+                                    android:textFontWeight="400"
+                                    app:fontFamily="@font/poppins_font_family" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:drawableLeft="@drawable/icon_uk"
+                                    android:drawablePadding="10dp"
+                                    android:text="@string/english"
+                                    android:textColor="@color/black"
+                                    android:textFontWeight="600"
+                                    app:fontFamily="@font/poppins_font_family" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/meaningEnglishTV"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:lineSpacingMultiplier="1.3"
+                                    android:text="@string/na"
+                                    android:textColor="@color/dictionary_word_title"
+                                    android:textFontWeight="400"
+                                    app:fontFamily="@font/poppins_font_family" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:drawableLeft="@drawable/icon_nepal"
+                                    android:drawablePadding="10dp"
+                                    android:text="@string/nepali"
+                                    android:textColor="@color/black"
+                                    android:textFontWeight="600"
+                                    app:fontFamily="@font/poppins_font_family" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/meaningNepaliTV"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:lineSpacingMultiplier="1.3"
+                                    android:singleLine="false"
+                                    android:text="@string/na"
+                                    android:textColor="@color/dictionary_word_title"
+                                    android:textFontWeight="400"
+                                    app:fontFamily="@font/poppins_font_family" />
+                            </LinearLayout>
+
+                        </TableLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/ubt_pink"
+                    app:cardCornerRadius="@dimen/dimen_5"
+                    app:cardElevation="@dimen/dimen_5"
+                    app:cardMaxElevation="@dimen/dimen_6"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dimen_20">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/rules"
+                            android:textColor="@color/header_text"
+                            android:textFontWeight="600"
+                            app:fontFamily="@font/poppins_font_family" />
+
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"> <!-- collapse the first column of the table row-->
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:drawableLeft="@drawable/icon_korea"
+                                    android:drawablePadding="10dp"
+                                    android:text="@string/korean"
+                                    android:textColor="@color/black"
+                                    android:textFontWeight="600"
+                                    app:fontFamily="@font/poppins_font_family" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/ruleKoreanTV"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:lineSpacingMultiplier="1.3"
+                                    android:text="@string/na"
+                                    android:textColor="@color/dictionary_word_title"
+                                    android:textFontWeight="400"
+                                    app:fontFamily="@font/poppins_font_family" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:drawableLeft="@drawable/icon_uk"
+                                    android:drawablePadding="10dp"
+                                    android:text="@string/english"
+                                    android:textColor="@color/black"
+                                    android:textFontWeight="600"
+                                    app:fontFamily="@font/poppins_font_family" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/ruleEnglishTV"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:lineSpacingMultiplier="1.3"
+                                    android:text="@string/na"
+                                    android:textColor="@color/dictionary_word_title"
+                                    android:textFontWeight="400"
+                                    app:fontFamily="@font/poppins_font_family" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:drawableLeft="@drawable/icon_nepal"
+                                    android:drawablePadding="10dp"
+                                    android:text="@string/nepali"
+                                    android:textColor="@color/black"
+                                    android:textFontWeight="600"
+                                    app:fontFamily="@font/poppins_font_family" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/ruleNepaliTV"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:lineSpacingMultiplier="1.3"
+                                    android:text="@string/na"
+                                    android:textColor="@color/dictionary_word_title"
+                                    android:textFontWeight="400"
+                                    app:fontFamily="@font/poppins_font_family" />
+                            </LinearLayout>
+
+                        </TableLayout>
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/ubt_blue"
+                    app:cardCornerRadius="@dimen/dimen_5"
+                    app:cardElevation="@dimen/dimen_5"
+                    app:cardMaxElevation="@dimen/dimen_6"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dimen_20">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/dimen_10"
+                            android:text="@string/example"
+                            android:textColor="@color/header_text"
+                            android:textFontWeight="600"
+                            app:fontFamily="@font/poppins_font_family" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/examplesTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/na"
+                            android:textColor="@color/black"
+                            android:textFontWeight="500"
+                            app:fontFamily="@font/poppins_font_family" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/dimen_5"
+                    app:cardElevation="@dimen/dimen_5"
+                    app:cardMaxElevation="@dimen/dimen_6"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dimen_20">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/dimen_10"
+                            android:text="@string/related_words"
+                            android:textColor="@color/header_text"
+                            android:textFontWeight="600"
+                            app:fontFamily="@font/poppins_font_family" />
+
+                        <com.google.android.material.chip.ChipGroup
+                            android:id="@+id/setChipGroup"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/dimen_10"
+                            android:theme="@style/Theme.MaterialComponents.Light"
+                            app:chipSpacingVertical="@dimen/dimen_15">
+
+                        </com.google.android.material.chip.ChipGroup>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner_ad_id"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_0"
+            android:visibility="gone"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/dimen_0"
+            app:cardElevation="0dp"
+            app:cardMaxElevation="@dimen/dimen_0"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_home_banner_first"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/sample_banner_first" />
+
+        </androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
+</layout>

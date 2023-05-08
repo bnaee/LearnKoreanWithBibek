@@ -1,0 +1,516 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_15"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/groupTitleTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/question_group"
+                android:textFontWeight="600"
+                app:fontFamily="@font/poppins_font_family" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:layout_marginBottom="@dimen/dimen_10"
+                android:background="@drawable/line_divider_grey" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/numberTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/header_text"
+                    android:textFontWeight="600"
+                    app:fontFamily="@font/poppins_font_family" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    tools:ignore="WebViewLayout">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/questionTitleTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/question_main"
+                        android:textFontWeight="400"
+                        app:fontFamily="@font/poppins_font_family" />
+
+
+                    <LinearLayout
+                        android:id="@+id/webLinear"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_10"
+                        android:background="@drawable/question_webview_background"
+                        android:padding="@dimen/dimen_10">
+
+                        <WebView
+                            android:id="@+id/questionSubTV"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/question_sub"
+                            android:textFontWeight="400"
+                            app:fontFamily="@font/poppins_font_family" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/firstCV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/question_cv_background"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/questionIV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="true"
+                    android:padding="@dimen/dimen_20"
+                    android:src="@drawable/sample_blog_1" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/soundIBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:background="@color/transparent"
+                    android:padding="@dimen/dimen_40"
+                    android:src="@drawable/ic_sound_exam" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/questionRG"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:layout_marginBottom="@dimen/dimen_20"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/firstChoice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_20"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:layout_width="@dimen/dimen_40"
+                        android:layout_height="@dimen/dimen_40"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="20dp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/firstChoiceRB"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/radio_regular"
+                            android:gravity="center"
+                            android:text="1"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/line_divider_grey"
+                            android:textFontWeight="700"
+                            app:fontFamily="@font/urbanist_font_family" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/firstChoiceCorrectRB"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/correct_answer_background"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="1"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/white"
+                            android:textFontWeight="700"
+                            android:visibility="gone"
+                            app:fontFamily="@font/urbanist_font_family" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/firstChoiceWrongRB"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/wrong_answer_background"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="1"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/white"
+                            android:textFontWeight="700"
+                            android:visibility="gone"
+                            app:fontFamily="@font/urbanist_font_family" />
+
+                    </FrameLayout>
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/firstChoiceIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:adjustViewBounds="true"
+                        android:background="@color/transparent"
+                        android:src="@drawable/ic_headphone" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/firstChoiceTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/black"
+                        android:textFontWeight="500"
+                        app:fontFamily="@font/poppins_font_family" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/firstCorrectIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/dimen_20"
+                        android:src="@drawable/ic_correct"
+                        android:visibility="gone" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/firstWrongIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/dimen_20"
+                        android:src="@drawable/ic_wrong"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/secondChoice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_20"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:layout_width="@dimen/dimen_40"
+                        android:layout_height="@dimen/dimen_40"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="20dp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/secondChoiceRB"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/radio_regular"
+                            android:gravity="center"
+                            android:text="2"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/line_divider_grey"
+                            android:textFontWeight="700"
+                            app:fontFamily="@font/urbanist_font_family" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/secondChoiceCorrectRB"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/correct_answer_background"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="2"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/white"
+                            android:textFontWeight="700"
+                            android:visibility="gone"
+                            app:fontFamily="@font/urbanist_font_family" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/secondChoiceWrongRB"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/wrong_answer_background"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="2"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/white"
+                            android:textFontWeight="700"
+                            android:visibility="gone"
+                            app:fontFamily="@font/urbanist_font_family" />
+
+                    </FrameLayout>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/secondChoiceIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:adjustViewBounds="true"
+                        android:background="@color/transparent"
+                        android:src="@drawable/ic_headphone" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/secondChoiceTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/black"
+                        android:textFontWeight="500"
+                        app:fontFamily="@font/poppins_font_family" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/secondCorrectIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/dimen_20"
+                        android:src="@drawable/ic_correct"
+                        android:visibility="gone" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/secondWrongIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/dimen_20"
+                        android:src="@drawable/ic_wrong"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/thirdChoice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_20"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:layout_width="@dimen/dimen_40"
+                        android:layout_height="@dimen/dimen_40"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="20dp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/thirdChoiceRB"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/radio_regular"
+                            android:gravity="center"
+                            android:text="3"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/line_divider_grey"
+                            android:textFontWeight="700"
+                            app:fontFamily="@font/urbanist_font_family" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/thirdChoiceCorrectRB"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/correct_answer_background"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="3"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/white"
+                            android:textFontWeight="700"
+                            android:visibility="gone"
+                            app:fontFamily="@font/urbanist_font_family" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/thirdChoiceWrongRB"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/wrong_answer_background"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="3"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/white"
+                            android:textFontWeight="700"
+                            android:visibility="gone"
+                            app:fontFamily="@font/urbanist_font_family" />
+
+                    </FrameLayout>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/thirdChoiceIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:adjustViewBounds="true"
+                        android:background="@color/transparent"
+                        android:src="@drawable/ic_headphone" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/thirdChoiceTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/black"
+                        android:textFontWeight="500"
+                        app:fontFamily="@font/poppins_font_family" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/thirdCorrectIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/dimen_20"
+                        android:src="@drawable/ic_correct"
+                        android:visibility="gone" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/thirdWrongIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/dimen_20"
+                        android:src="@drawable/ic_wrong"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/fourthChoice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_20"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:layout_width="@dimen/dimen_40"
+                        android:layout_height="@dimen/dimen_40"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="20dp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/fourthChoiceRB"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/radio_regular"
+                            android:gravity="center"
+                            android:text="4"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/line_divider_grey"
+                            android:textFontWeight="700"
+                            app:fontFamily="@font/urbanist_font_family" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/fourthChoiceCorrectRB"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/correct_answer_background"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="4"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/white"
+                            android:textFontWeight="700"
+                            android:visibility="gone"
+                            app:fontFamily="@font/urbanist_font_family" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/fourthChoiceWrongRB"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/wrong_answer_background"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="4"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/white"
+                            android:textFontWeight="700"
+                            android:visibility="gone"
+                            app:fontFamily="@font/urbanist_font_family" />
+
+                    </FrameLayout>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/fourthChoiceIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:adjustViewBounds="true"
+                        android:background="@color/transparent"
+                        android:src="@drawable/ic_headphone" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/fourthChoiceTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/black"
+                        android:textFontWeight="500"
+                        app:fontFamily="@font/poppins_font_family" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/fourthCorrectIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/dimen_20"
+                        android:src="@drawable/ic_correct"
+                        android:visibility="gone" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/fourthWrongIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/dimen_20"
+                        android:src="@drawable/ic_wrong"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

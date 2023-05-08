@@ -1,0 +1,139 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="mainhandler"
+            type="com.genesiswtech.lkwb.ui.main.view.IMainView" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/mainToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_actionbar_background"
+            android:elevation="5dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/actionBarProfileIV"
+                    android:layout_width="@dimen/dimen_40"
+                    android:layout_height="@dimen/dimen_40"
+                    android:layout_centerVertical="true"
+                    android:onClick="@{mainhandler::onProfileClick}"
+                    android:src="@drawable/ic_name"
+                    app:civ_border_color="@color/header_text"
+                    app:civ_border_width="@dimen/dimen_2" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actionBarTitleTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/linear"
+                    android:layout_toLeftOf="@+id/linear"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:layout_toEndOf="@+id/actionBarProfileIV"
+                    android:onClick="@{mainhandler::onTitleClick}"
+                    android:paddingStart="@dimen/dimen_15"
+                    android:text="@string/home"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/white"
+                    android:textFontWeight="700"
+                    app:fontFamily="@font/urbanist_font_family" />
+
+                <LinearLayout
+                    android:id="@+id/linear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="@dimen/dimen_40"
+                        android:layout_height="@dimen/dimen_40">
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/notificationIBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/menu_background"
+                            android:onClick="@{mainhandler::onNotificationClick}"
+                            android:src="@drawable/ic_notification"
+                            android:tint="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/notificationCountTV"
+                            android:layout_width="@dimen/dimen_20"
+                            android:layout_height="@dimen/dimen_20"
+                            android:background="@drawable/notification_background"
+                            android:text="0"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textFontWeight="900"
+                            android:visibility="invisible"
+                            app:fontFamily="@font/urbanist_font_family"
+                            app:layout_constraintEnd_toEndOf="@+id/notificationIBtn"
+                            app:layout_constraintHorizontal_bias="0.803"
+                            app:layout_constraintStart_toStartOf="@+id/notificationIBtn" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/actionBarMenuIBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/menu_background"
+                        android:onClick="@{mainhandler::onMenuClick}"
+                        android:src="@drawable/ic_menu_more"
+                        android:tint="@color/white" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:itemHorizontalTranslationEnabled="false"
+            app:labelVisibilityMode="unlabeled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/menu_tab_navigation" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/mainVP"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainToolbar" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
