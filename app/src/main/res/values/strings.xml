@@ -118,7 +118,7 @@
     <string name="nepali">Nepali</string>
     <string name="nepali_trans">घरेलू खाता</string>
     <string name="english_trans">household ledger[account book]</string>
-    <string name="example">Example</string>
+    <string name="example">Examples</string>
     <string name="related_words">Other Grammar</string>
     <string name="word_example">가계부를 기록하다.
 खातामा रेकर्ड राख्नु।</string>
@@ -155,8 +155,8 @@
     <string name="correct_answer">Correct Answer</string>
     <string name="unsolved_question">Unattempted Question</string>
     <string name="all_questions">All Questions</string>
-    <string name="listening">Listening  (20 Questions)</string>
-    <string name="reading">Reading  (20 Questions)</string>
+    <string name="listening">Listening  (%1$s Questions)</string>
+    <string name="reading">Reading  (%1$s Questions)</string>
     <string name="attempted_question">Attempted Question</string>
     <string name="attempted_questions">Attempted Questions</string>
     <string name="unattempted_questions">Unattempted Questions</string>
@@ -455,4 +455,9 @@
     <string name="buy_package_khalti">Do you want to buy this package with Khalti?</string>
     <string name="buy_package_reward">Do you want to buy this package with Reward Points?</string>
 
+    <string name="your_performance">Your Performance</string>
+    <string name="last_test_score">Last Test Score</string>
+    <string name="return_test">Return to Test</string>
+
+    <string name="refer_code_popup">If a friend referred you to this app, kindly input their referral code to receive a 30 reward point. Additionally, if you refer this app to other friends, you will also earn 30 reward points. If you do not have any reference code, please leave the field blank.</string>
 </resources>

@@ -52,17 +52,17 @@ class UBTQuestionFragment : Fragment(R.layout.fragment_ubt_question), IQuestionV
     }
 
     private fun initViews() {
-        if (list[position].groupTitle !== null)
+        if (!list[position].groupTitle.isNullOrEmpty())
             fragmentUbtQuestionBinding.groupTitleTV.text =
                 Html.fromHtml(list[position].groupTitle, 0)
         else
             fragmentUbtQuestionBinding.groupTitleTV.visibility = View.GONE
-        if (list[position].mainTitle !== null)
+        if (!list[position].mainTitle.isNullOrEmpty())
             fragmentUbtQuestionBinding.questionTitleTV.text =
                 Html.fromHtml(list[position].mainTitle!!.trim(), 0).trim()
         else
             fragmentUbtQuestionBinding.questionTitleTV.visibility = View.GONE
-        if (list[position].subTitle !== null) {
+        if (!list[position].subTitle.isNullOrEmpty()) {
             if (list[position].type == LKWBConstants.AUDIO) {
                 fragmentUbtQuestionBinding.questionSoundSubTV!!.settings.domStorageEnabled = true
                 fragmentUbtQuestionBinding.questionSoundSubTV!!.settings.setAppCacheEnabled(true)

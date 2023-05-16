@@ -17,7 +17,7 @@
         android:title="@string/grammar" />
     <item
         android:id="@+id/dictionaryFragment"
-        android:icon="@drawable/ic_tab_dictionary"
+        android:icon="@drawable/icon_dictionary"
         android:title="@string/dictionary" />
 
     <item

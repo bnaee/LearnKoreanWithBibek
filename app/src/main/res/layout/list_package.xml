@@ -25,7 +25,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/background_buy_package"
+                android:background="@drawable/background_set_package"
                 android:gravity="center"
                 android:text="20 Sets"
                 android:textColor="@color/black"

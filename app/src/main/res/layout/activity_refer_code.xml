@@ -57,18 +57,32 @@
                     app:fontFamily="@font/urbanist_font_family" />
 
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/referCodeEdt"
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edittext_background"
-                    android:hint="@string/optional"
-                    android:inputType="textEmailAddress"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/text_hint"
-                    android:textCursorDrawable="@drawable/cursor_black"
-                    android:textFontWeight="500"
-                    app:fontFamily="@font/urbanist_font_family" />
+                    android:background="@drawable/edittext_background">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/referCodeEdt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/optional"
+                        android:inputType="text"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/text_hint"
+                        android:textCursorDrawable="@drawable/cursor_black"
+                        android:textFontWeight="500"
+                        app:fontFamily="@font/urbanist_font_family" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/referCodeToggleIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:onClick="@{referCodehandler::onReferCodeToggleClick}"
+                        android:src="@drawable/ic_info" />
+                </RelativeLayout>
 
 
                 <androidx.appcompat.widget.AppCompatButton

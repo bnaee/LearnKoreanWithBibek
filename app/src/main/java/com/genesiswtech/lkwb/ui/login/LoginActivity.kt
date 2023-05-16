@@ -107,7 +107,11 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(), ILoginView {
                         Log.v("LoginActivity", response.toString())
                         id = `object`!!.getString("id")
                         displayName = `object`.getString("name")
-                        email = `object`.getString("email")
+                        try {
+                            email = `object`.getString("email")
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+                        }
                         val photo = `object`.getString("picture")
                         val fbtype: Type = object : TypeToken<FacebookPictureResponse?>() {}.type
                         val fbPic: FacebookPictureResponse = Gson().fromJson(photo, fbtype)

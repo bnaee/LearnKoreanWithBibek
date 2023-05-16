@@ -23,7 +23,7 @@ class UBTTotalQuestionAdapter @Inject constructor(
 
     override fun onBindViewHolder(holder: UBTTotalQuestionViewHolder, position: Int) {
 
-        val width: Int = activity.resources.displayMetrics.widthPixels
+        val width: Int = activity.resources.displayMetrics.heightPixels
         holder.numberFrame.layoutParams = LinearLayout.LayoutParams(width/7, width/7)
         val blog = dataList[position]
         val pos: Int = start + position + 1

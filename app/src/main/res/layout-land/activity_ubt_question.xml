@@ -58,6 +58,31 @@
                     android:textFontWeight="600"
                     app:fontFamily="@font/poppins_font_family" />
 
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/attemptedCountTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/dimen_40"
+                    android:layout_marginRight="@dimen/dimen_40"
+                    android:layout_toRightOf="@+id/questionCountTV1"
+                    android:text="@string/attempted_questions"
+                    android:textColor="@color/header_text"
+                    android:textFontWeight="600"
+                    app:fontFamily="@font/poppins_font_family" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/unattemptedCountTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_toRightOf="@+id/attemptedCountTV"
+                    android:text="@string/unattempted_questions"
+                    android:textColor="@color/header_text"
+                    android:textFontWeight="600"
+                    app:fontFamily="@font/poppins_font_family" />
+
+
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -69,7 +94,7 @@
                         android:layout_width="28dp"
                         android:layout_height="28dp"
                         android:layout_marginRight="@dimen/dimen_10"
-                        android:background="@drawable/button_all_question"
+                        android:background="@drawable/background_exam_timer"
                         android:padding="@dimen/dimen_5"
                         android:src="@drawable/ic_clock"
                         android:tint="@color/header_text" />
@@ -141,8 +166,8 @@
                         android:id="@+id/previousBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="@dimen/dimen_8"
-                        android:layout_toLeftOf="@+id/view"
+                        android:layout_alignParentLeft="true"
+
                         android:background="@drawable/button_previous"
                         android:onClick="@{ubtQuestionHandler::onPreviousButtonClick}"
                         android:text="@string/previous"
@@ -157,8 +182,7 @@
                         android:id="@+id/nextBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/dimen_8"
-                        android:layout_toRightOf="@+id/view"
+                        android:layout_alignParentRight="true"
                         android:background="@drawable/button_blue_background"
                         android:onClick="@{ubtQuestionHandler::onNextButtonClick}"
                         android:text="@string/next"
@@ -179,7 +203,8 @@
                         android:id="@+id/allQuestionBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
+                        android:layout_marginRight="@dimen/dimen_8"
+                        android:layout_toLeftOf="@+id/view"
                         android:background="@drawable/button_all_question"
                         android:onClick="@{ubtQuestionHandler::onAllQuestionButtonClick}"
                         android:text="@string/all_questions"
@@ -192,7 +217,7 @@
                         android:id="@+id/submitBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
+                        android:layout_toRightOf="@+id/view"
                         android:background="@drawable/button_blue_background"
                         android:onClick="@{ubtQuestionHandler::onSubmitButtonClick}"
                         android:text="@string/submit"

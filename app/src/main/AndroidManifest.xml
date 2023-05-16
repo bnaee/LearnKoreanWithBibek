@@ -140,6 +140,7 @@
         <activity
             android:name=".ui.beginTest.BeginTestActivity"
             android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
             android:label="@string/your_package"
             android:theme="@style/AppTheme" />
 
@@ -189,8 +190,8 @@
         <activity
             android:name=".ui.ubtTotalQuestion.UBTTotalQuestionActivity"
             android:configChanges="orientation|screenSize"
-            android:label="@string/all_questions"
-            android:screenOrientation="portrait"
+            android:label="@string/return_test"
+            android:screenOrientation="landscape"
             android:theme="@style/AppTheme" />
 
         <activity
@@ -288,7 +289,7 @@
         <activity
             android:name=".ui.graph.GraphActivity"
             android:configChanges="orientation|screenSize"
-            android:label="@string/test_score"
+            android:label="@string/your_performance"
             android:theme="@style/AppTheme" />
 
         <provider

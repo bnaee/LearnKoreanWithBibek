@@ -27,6 +27,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/ic_exam_banner"
+                    android:visibility="visible" />
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -247,15 +255,6 @@
                     </LinearLayout>
 
                 </LinearLayout>
-
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/fourthChoice"
-                    android:layout_alignParentEnd="true"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/ic_exam_banner" />
 
 
             </RelativeLayout>

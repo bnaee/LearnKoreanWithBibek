@@ -6,23 +6,18 @@ import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.LinearLayout
+import android.view.WindowManager
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.viewpager.widget.ViewPager
 import com.genesiswtech.lkwb.R
 import com.genesiswtech.lkwb.base.BaseActivity
-import com.genesiswtech.lkwb.databinding.ActivityProfileBinding
-import com.genesiswtech.lkwb.databinding.ActivitySettingBinding
 import com.genesiswtech.lkwb.databinding.ActivityUbtQuestionBinding
 import com.genesiswtech.lkwb.ui.beginTest.model.BeginTestDataResponse
 import com.genesiswtech.lkwb.ui.ubtCalculate.UBTCalculateActivity
@@ -38,10 +33,8 @@ import com.genesiswtech.lkwb.utils.*
 import com.genesiswtech.lkwb.utils.AppUtils.actionBarWithTitleElevation
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
-import java.util.*
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
-import kotlin.concurrent.timerTask
 
 
 class UBTQuestionActivity : BaseActivity<ActivityUbtQuestionBinding>(), IUBTQuestionView,
@@ -72,6 +65,11 @@ class UBTQuestionActivity : BaseActivity<ActivityUbtQuestionBinding>(), IUBTQues
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
+                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
         loadText = resources.getString(R.string.please_wait)
         packageId = intent.getStringExtra(LKWBConstants.BLOG_PACKAGE)
         beginTestDataResponse =
@@ -92,7 +90,10 @@ class UBTQuestionActivity : BaseActivity<ActivityUbtQuestionBinding>(), IUBTQues
         ubtQuestionPresenter!!.getUBTQuestion(this, id)
         val time: Long = (beginTestDataResponse!!.time!!.toLong()) * 1000 * 60
         ubtTimer(time)
-
+        ubtQuestionBinding.attemptedCountTV!!.text =
+            getString(R.string.attempted_questions) + ":" + 0
+        ubtQuestionBinding.unattemptedCountTV!!.text =
+            getString(R.string.unattempted_questions) + ":" + totalNumber
 
     }
 
@@ -199,11 +200,13 @@ class UBTQuestionActivity : BaseActivity<ActivityUbtQuestionBinding>(), IUBTQues
 //            (ubtQuestionBinding.previousBtn.layoutParams as LinearLayout.LayoutParams).weight = 0f
 //            (ubtQuestionBinding.nextBtn.layoutParams as LinearLayout.LayoutParams).weight = 2f
             ubtQuestionBinding.previousBtn.visibility = View.GONE
+            ubtQuestionBinding.nextBtn.visibility = View.VISIBLE
 //            ubtQuestionBinding.view.visibility = View.GONE
         } else if (ubtQuestionBinding.viewPagerQuestion.currentItem == (totalNumber!! - 1)) {
 //            (ubtQuestionBinding.previousBtn.layoutParams as LinearLayout.LayoutParams).weight = 2f
 //            (ubtQuestionBinding.nextBtn.layoutParams as LinearLayout.LayoutParams).weight = 0f
             ubtQuestionBinding.nextBtn.visibility = View.GONE
+            ubtQuestionBinding.previousBtn.visibility = View.VISIBLE
 //            ubtQuestionBinding.view.visibility = View.GONE
         } else {
 //            (ubtQuestionBinding.previousBtn.layoutParams as LinearLayout.LayoutParams).weight = 1f
@@ -365,12 +368,17 @@ class UBTQuestionActivity : BaseActivity<ActivityUbtQuestionBinding>(), IUBTQues
 //                Log.d("TAG", "Selected Position: " + value)
                 if (value != null) {
                     ubtQuestionBinding.viewPagerQuestion.setCurrentItem(value - 1, true)
+                    buttonLayoutChange()
                 }
             }
         }
 
     override fun onQuestionDataPass(position: Int, answer: Int) {
         totalQuestionHashMap[position] = answer
+        ubtQuestionBinding.attemptedCountTV!!.text =
+            getString(R.string.attempted_questions) + ":" + questionAttemptCount()
+        ubtQuestionBinding.unattemptedCountTV!!.text =
+            getString(R.string.unattempted_questions) + ":" + questionUnsolvedCount()
     }
 
     private fun hashMapCorrectData(

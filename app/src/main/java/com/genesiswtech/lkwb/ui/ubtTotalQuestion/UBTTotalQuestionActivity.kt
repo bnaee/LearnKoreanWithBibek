@@ -35,6 +35,8 @@ class UBTTotalQuestionActivity : BaseActivity<ActivityUbtTotalQuestionBinding>()
         ubtTotalQuestionBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_ubt_total_question)
         ubtTotalQuestionBinding.ubtTotalQuestionHandler = this
+        ubtTotalQuestionBinding.readingCountTV.text=String.format(getString(R.string.reading),read)
+        ubtTotalQuestionBinding.listeningCountTV.text=String.format(getString(R.string.listening),listen)
         setAdapter()
     }
 

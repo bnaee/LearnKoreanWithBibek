@@ -188,7 +188,7 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginBottom="@dimen/dimen_20"
                             android:text="@string/our_services"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
                             android:textColor="@color/button_blue"
                             android:textFontWeight="700"
                             app:fontFamily="@font/urbanist_font_family" />
@@ -268,7 +268,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_margin="@dimen/dimen_10"
                                 android:text="@string/most_purchase_sets"
-                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
                                 android:textColor="@color/button_blue"
                                 android:textFontWeight="700"
                                 app:fontFamily="@font/urbanist_font_family" />
@@ -371,7 +371,7 @@
                                 android:ellipsize="middle"
                                 android:singleLine="true"
                                 android:text="@string/new_test"
-                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
                                 android:textColor="@color/button_blue"
                                 android:textFontWeight="700"
                                 app:fontFamily="@font/urbanist_font_family" />

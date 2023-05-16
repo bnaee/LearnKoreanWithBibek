@@ -261,6 +261,10 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(), IRegisterView 
         registerBinding.confirmPasswordEdt.setSelection(registerBinding.confirmPasswordEdt.length())
     }
 
+    override fun onReferCodeToggleClick(v: View?) {
+        referCodeDialog()
+    }
+
     override fun onSuccess(registerResponse: RegisterResponse) {
         LKWBPreferencesManager.put(registerResponse.data, LKWBConstants.KEY_USER)
         LKWBPreferencesManager.putString(
@@ -470,6 +474,14 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(), IRegisterView 
                 }
             }
         }
+    }
+
+    private fun referCodeDialog() {
+        AppUtils.showPurchaseDialog(this,
+            getString(R.string.refer_code),
+            getString(R.string.refer_code_popup),
+            titleOfPositiveButton = getString(R.string.ok),
+            positiveButtonFunction = {})
     }
 
     override val binding: ActivityRegisterBinding

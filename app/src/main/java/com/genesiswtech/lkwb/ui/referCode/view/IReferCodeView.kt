@@ -5,4 +5,6 @@ import android.view.View
 interface IReferCodeView {
 
     fun onContinueClick(v: View?)
+
+    fun onReferCodeToggleClick(v: View?)
 }

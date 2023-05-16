@@ -89,6 +89,7 @@
                     android:padding="@dimen/dimen_20">
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/readingCountTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="15dp"
@@ -104,6 +105,7 @@
                         android:layout_height="wrap_content" />
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/listeningCountTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dimen_15"

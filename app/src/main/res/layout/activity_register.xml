@@ -168,18 +168,33 @@
                 </RelativeLayout>
 
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/referCodeEdt"
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edittext_background"
-                    android:hint="@string/refer_code"
-                    android:inputType="text"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/text_hint"
-                    android:textCursorDrawable="@drawable/cursor_black"
-                    android:textFontWeight="500"
-                    app:fontFamily="@font/urbanist_font_family" />
+                    android:layout_marginBottom="@dimen/dimen_25"
+                    android:background="@drawable/edittext_background">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/referCodeEdt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/refer_code"
+                        android:inputType="text"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/text_hint"
+                        android:textCursorDrawable="@drawable/cursor_black"
+                        android:textFontWeight="500"
+                        app:fontFamily="@font/urbanist_font_family" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/referCodeToggleIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:onClick="@{registerhandler::onReferCodeToggleClick}"
+                        android:src="@drawable/ic_info" />
+                </RelativeLayout>
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_register"
@@ -245,8 +260,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/imagebutton_background"
-                        android:padding="@dimen/dimen_20"
                         android:onClick="@{registerhandler::onFBLoginButtonClick}"
+                        android:padding="@dimen/dimen_20"
                         android:src="@drawable/ic_facebook" />
 
                     <androidx.appcompat.widget.AppCompatImageButton
@@ -255,8 +270,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dimen_25"
                         android:layout_marginRight="@dimen/dimen_25"
-                        android:onClick="@{registerhandler::onGoogleLoginButtonClick}"
                         android:background="@drawable/imagebutton_background"
+                        android:onClick="@{registerhandler::onGoogleLoginButtonClick}"
                         android:padding="@dimen/dimen_20"
                         android:src="@drawable/ic_google" />
 

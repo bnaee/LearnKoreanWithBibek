@@ -15,6 +15,7 @@ interface IRegisterView {
     fun hideKeyboard()
     fun onPasswordToggleClick(v: View?)
     fun onConfirmPasswordToggleClick(v: View?)
+    fun onReferCodeToggleClick(v: View?)
 
     fun onNameError()
 

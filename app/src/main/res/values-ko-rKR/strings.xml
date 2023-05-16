@@ -155,8 +155,8 @@
     <string name="correct_answer">정답</string>
     <string name="unsolved_question">남은 문항</string>
     <string name="all_questions">모든 문항</string>
-    <string name="listening">듣기 (20 문항)</string>
-    <string name="reading">읽기 (20 문항)</string>
+    <string name="listening">듣기 (%1$s 문항)</string>
+    <string name="reading">읽기 (%1$s 문항)</string>
     <string name="attempted_question">진행한 문항</string>
     <string name="attempted_questions">진행한 문항</string>
     <string name="unattempted_questions">남은 문항</string>
@@ -457,6 +457,8 @@
     <string name="buy_test_khalti">이 패키지를 khalti로 구매하시겠어요?</string>
     <string name="buy_test_reward">이 패키지를 리워드 포인트로 구매하시겠어요?</string>
 
-
-
+    <string name="your_performance">Your Performance</string>
+    <string name="last_test_score">Last Test Score</string>
+    <string name="refer_code_popup">If a friend referred you to this app, kindly input their referral code to receive a 30 reward point. Additionally, if you refer this app to other friends, you will also earn 30 reward points. If you do not have any reference code, please leave the field blank.</string>
+    <string name="return_test">Return to Test</string>
 </resources>

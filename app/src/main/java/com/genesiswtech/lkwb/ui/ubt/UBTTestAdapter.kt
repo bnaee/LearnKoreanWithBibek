@@ -92,7 +92,7 @@ class UBTTestAdapter @Inject constructor(
                     }
                 } else
                     if (ubt.status == false) {
-                        holder.ubtListBinding.ubtCountTV.text = context.getString(R.string.buy_now)
+                        holder.ubtListBinding.ubtCountTV.text = "   "+context.getString(R.string.buy_now)+"   "
                         if (ubt.isNew == true)
                             holder.ubtListBinding.newTV.visibility = View.VISIBLE
                         else

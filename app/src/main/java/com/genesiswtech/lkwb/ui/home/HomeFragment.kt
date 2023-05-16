@@ -273,10 +273,10 @@ class HomeFragment : Fragment(R.layout.fragment_home), IHomeView {
         bannerUrl = bannerDataResponse.image.toString()
         Glide.with(requireContext()).load(bannerDataResponse.image)
             .into(fragmentHomeBinding!!.imgHomeBanner)
-
         fragmentHomeBinding!!.bannerHeaderTV.text = bannerDataResponse.topText
         fragmentHomeBinding!!.bannerSubTV.text = bannerDataResponse.headerText
-        fragmentHomeBinding!!.homeBannerCV.visibility = View.VISIBLE
+        if (bannerDataResponse.display_image == true)
+            fragmentHomeBinding!!.homeBannerCV.visibility = View.VISIBLE
     }
 
     override fun onLastTestScoreSuccess(testScoreResponse: TestScoreDataResponse) {

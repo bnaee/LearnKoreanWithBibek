@@ -11,9 +11,9 @@
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 2,
-      "versionName": "1.0.1",
-      "outputFile": "LKWB-VersionCode-2-VersionName-1.0.1-live-release.apk"
+      "versionCode": 4,
+      "versionName": "1.0.2",
+      "outputFile": "LKWB-VersionCode-4-VersionName-1.0.2-live-release.apk"
     }
   ],
   "elementType": "File"
