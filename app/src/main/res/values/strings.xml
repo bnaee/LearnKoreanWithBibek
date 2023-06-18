@@ -115,7 +115,7 @@
 
 
     <string name="word_title">가계부</string>
-    <string name="nepali">Nepali</string>
+    <string name="nepali">네팔어</string>
     <string name="nepali_trans">घरेलू खाता</string>
     <string name="english_trans">household ledger[account book]</string>
     <string name="example">Examples</string>
@@ -459,5 +459,21 @@
     <string name="last_test_score">Last Test Score</string>
     <string name="return_test">Return to Test</string>
 
+
     <string name="refer_code_popup">If a friend referred you to this app, kindly input their referral code to receive a 30 reward point. Additionally, if you refer this app to other friends, you will also earn 30 reward points. If you do not have any reference code, please leave the field blank.</string>
+    <string name="want_to_login">Do you want to login?</string>
+    <string name="feature_require_login">This feature require user authentication.</string>
+
+
+    <string name="nepal">네팔어</string>
+    <string name="englis">영어</string>
+    <string name="korea">한국어</string>
+
+    <string name="reclaim">Reclaim</string>
+    <string name="transaction_reclaim">If your transaction has been completed but the set has not been opened. Then insert your product ID from the payment statement of your respective gateway in the box below. Then send it to us.</string>
+    <string name="gateway">Gateway</string>
+    <string name="transaction_hint">x-xx-xxxx-xxxxxxxxx</string>
+    <string name="txn_required">The txn id fiield is required</string>
+    <string name="reclaim_success">Reclaim success</string>
+
 </resources>

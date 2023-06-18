@@ -7,6 +7,7 @@ data class BannerDataResponse(
     @SerializedName("header_text") var headerText: String? = null,
     @SerializedName("description") var description: String? = null,
     @SerializedName("image") var image: String? = null,
+    @SerializedName("image_url") var imageUrl: String? = null,
     @SerializedName("back_image") var backImage: String? = null,
     @SerializedName("display_image") var display_image : Boolean? = null
 )

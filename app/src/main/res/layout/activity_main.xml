@@ -35,7 +35,7 @@
                     android:layout_height="@dimen/dimen_40"
                     android:layout_centerVertical="true"
                     android:onClick="@{mainhandler::onProfileClick}"
-                    android:src="@drawable/ic_name"
+                    android:src="@drawable/ic_dummy"
                     app:civ_border_color="@color/header_text"
                     app:civ_border_width="@dimen/dimen_2" />
 

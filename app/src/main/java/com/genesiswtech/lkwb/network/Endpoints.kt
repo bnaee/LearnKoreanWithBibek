@@ -20,23 +20,23 @@ object Endpoints {
     const val home_services = "home/services"
     const val home_banner = "home/banner"
     const val home_most_bought = "home/most-bought-sets"
-    const val new_test = "new-sets"
+    const val new_test = "home/new-sets"
     const val last_test_score = "last-test-score"
     const val result_history_app = "result-history-app"
 
     const val grammar_day = "words-of-today"
-    const val grammar_all = "all-grammar"
-    const val grammar_category = "grammar-category"
-    const val grammar_single = "grammar-word/{id}"
+    const val grammar_all = "home/all-grammar"
+    const val grammar_category = "home/grammar-category"
+    const val grammar_single = "home/grammar-word/{id}"
 
-    const val dictionaries = "dictionaries"
-    const val single_dictionary = "dictionaries/{id}"
+    const val dictionaries = "home/dictionaries"
+    const val single_dictionary = "home/dictionaries/{id}"
 
     const val single_blogs = "home/blogs/{id}"
     const val blogs = "home/blogs"
 
-    const val all_packages = "all-packages"
-    const val ubt_test = "all-sets"
+    const val all_packages = "home/all-packages"
+    const val ubt_test = "home/all-sets"
     const val ubt_set = "sets/{id}"
     const val ubt_questions = "sets/{id}/questions"
     const val ubt_buy = "{sets}/{id}/buy/{type}"
@@ -55,7 +55,7 @@ object Endpoints {
     const val store_result = "sets/store-result"
 
     const val discussions = "home/discussions"
-    const val single_discussions = "discussions/{id}"
+    const val single_discussions = "home/discussions/{id}"
     const val create_discussions = "discussions/create"
     const val delete_discussions = "discussions/{id}/delete"
     const val edit_discussions = "discussions/{id}/update"
@@ -81,6 +81,8 @@ object Endpoints {
     const val delete_account = "delete-account"
 
     const val store_device_token = "store-device-token/web"
+
+    const val reclaim = "store/transaction-claims"
 
     private fun getBaseUrl(): String {
         return if (BuildConfig.DEBUG) {

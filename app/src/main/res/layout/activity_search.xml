@@ -103,15 +103,18 @@
                                     android:src="@drawable/ic_search" />
 
                                 <androidx.appcompat.widget.AppCompatEditText
+                                    android:id="@+id/searchEdt"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:background="@null"
                                     android:hint="@string/search"
                                     android:singleLine="true"
+                                    android:imeOptions="actionSearch"
                                     android:textCursorDrawable="@drawable/cursor_black"
                                     android:textFontWeight="400"
                                     app:addTextChangedListener="@{grammarSearchHandler.onEditTextWatcher()}"
                                     app:fontFamily="@font/poppins_font_family" />
+
 
                             </LinearLayout>
 

@@ -1,0 +1,12 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/button_reclaim" />
+    <stroke
+        android:width="@dimen/dimen_0"
+        android:color="@color/button_reclaim" />
+    <corners android:radius="@dimen/corner_radius" />
+    <padding
+        android:bottom="@dimen/dimen_10"
+        android:left="@dimen/dimen_15"
+        android:right="@dimen/dimen_15"
+        android:top="@dimen/dimen_10" />
+</shape>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:local="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/closeIBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@android:color/transparent"
+            android:clickable="true"
+            android:src="@drawable/ic_close"
+            android:tint="@color/sub_text" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1"
+            android:background="@color/line_divider_grey"
+            android:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_20"
+            android:text="@string/transaction_reclaim"
+            android:textColor="@color/black"
+            android:textFontWeight="400"
+            app:fontFamily="@font/poppins_font_family" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/gatewayTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toLeftOf="@+id/textTV"
+                android:text="@string/gateway"
+                android:textColor="@color/black"
+                android:textFontWeight="400"
+                app:fontFamily="@font/poppins_font_family" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text=" : "
+                android:textColor="@color/black"
+                android:textFontWeight="400"
+                app:fontFamily="@font/poppins_font_family" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textTV"
+                android:background="@drawable/transaction_spinner">
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/reclaimSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    local:popupTheme="@style/AppTheme"
+                    local:theme="@style/AppTheme"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/reclaimEdt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_20"
+            android:background="@drawable/background_transation_edittext"
+            android:hint="@string/transaction_hint"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/black"
+            android:textColorHint="@color/text_hint"
+            android:textCursorDrawable="@drawable/cursor_black"
+            android:textFontWeight="500"
+            app:fontFamily="@font/urbanist_font_family" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/submitBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/button_green_background"
+            android:text="@string/submit"
+            android:textColor="@color/white"
+            android:textColorHint="@color/text_hint"
+            android:textCursorDrawable="@drawable/cursor_black"
+            android:textFontWeight="600"
+            app:fontFamily="@font/urbanist_font_family" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_20" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.genesiswtech.lkwb.R
 import com.genesiswtech.lkwb.databinding.ListCommentBinding
 import com.genesiswtech.lkwb.ui.discussionDetail.model.CommentDataResponse
+import com.genesiswtech.lkwb.utils.AppUtils
 import com.genesiswtech.lkwb.utils.LKWBConstants
 import com.genesiswtech.lkwb.utils.LKWBPreferencesManager
 import com.genesiswtech.lkwb.utils.TimeAgo
@@ -44,10 +45,14 @@ class CommentAdapter @Inject constructor(
         Glide.with(context)
             .load(comment.userImage)
             .into(holder.commentListBinding.picIV)
-        if (comment.userId == LKWBPreferencesManager.getString(LKWBConstants.USER_ID)!!.toInt())
-            holder.commentListBinding.optionIBtn.visibility = View.VISIBLE
-        else
+        if (AppUtils.isLoggedOn()) {
+            if (comment.userId == LKWBPreferencesManager.getString(LKWBConstants.USER_ID)!!.toInt())
+                holder.commentListBinding.optionIBtn.visibility = View.VISIBLE
+            else
+                holder.commentListBinding.optionIBtn.visibility = View.GONE
+        } else {
             holder.commentListBinding.optionIBtn.visibility = View.GONE
+        }
         holder.commentListBinding.timeTV.text =
             context.getString(R.string.updated) + " " + comment.displayDate
         holder.commentListBinding.nameTV.text =

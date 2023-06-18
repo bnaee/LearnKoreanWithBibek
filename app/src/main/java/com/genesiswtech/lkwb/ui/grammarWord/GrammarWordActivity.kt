@@ -1,6 +1,7 @@
 package com.genesiswtech.lkwb.ui.grammarWord
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.text.Html
@@ -9,6 +10,8 @@ import android.text.method.LinkMovementMethod
 import android.text.style.QuoteSpan
 import android.util.Log
 import android.view.View
+import android.webkit.WebSettings
+import android.webkit.WebView
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -29,6 +32,7 @@ import com.genesiswtech.lkwb.ui.grammarWord.model.RelatedWords
 import com.genesiswtech.lkwb.ui.grammarWord.model.Rules
 import com.genesiswtech.lkwb.ui.grammarWord.presenter.GrammarWordPresenter
 import com.genesiswtech.lkwb.ui.grammarWord.view.IGrammarWordView
+import com.genesiswtech.lkwb.ui.notification.NotificationActivity
 import com.genesiswtech.lkwb.utils.*
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
@@ -72,6 +76,7 @@ class GrammarWordActivity : BaseActivity<ActivityGrammarWordBinding>(), IGrammar
         MobileAds.initialize(this)
         adRequest = AdRequest.Builder().build()
         grammarWordBinding.adView.loadAd(adRequest)
+        grammarWordBinding.adView1.loadAd(adRequest)
     }
 
     private fun addChipToGroup(relatedWords: RelatedWords) {
@@ -117,10 +122,14 @@ class GrammarWordActivity : BaseActivity<ActivityGrammarWordBinding>(), IGrammar
     }
 
     override fun onWordFavouriteButtonClick(v: View?) {
-        if (isFavourite == true)
-            grammarWordPresenter!!.postRemoveFavouriteGrammar(this, id!!, LKWBConstants.GRAMMAR)
-        else
-            grammarWordPresenter!!.postAddFavouriteGrammar(this, id!!, LKWBConstants.GRAMMAR)
+        if (AppUtils.isLoggedOn()) {
+            if (isFavourite == true)
+                grammarWordPresenter!!.postRemoveFavouriteGrammar(this, id!!, LKWBConstants.GRAMMAR)
+            else
+                grammarWordPresenter!!.postAddFavouriteGrammar(this, id!!, LKWBConstants.GRAMMAR)
+        } else
+            AppUtils.showLoginDialog(this)
+
     }
 
 
@@ -166,8 +175,6 @@ class GrammarWordActivity : BaseActivity<ActivityGrammarWordBinding>(), IGrammar
             Log.d("TAG", "HTML Text: " + meanings.en)
             grammarWordBinding.meaningEnglishTV.text =
                 Html.fromHtml(meanings.en, Html.FROM_HTML_MODE_LEGACY).trim()
-//            grammarWordBinding.meaningEnglishTV.text =meanings.en
-//            displayHtml(meanings.en.toString())
         }
         if (meanings.np != null)
             grammarWordBinding.meaningNepaliTV.text = Html.fromHtml(meanings.np, 0).trim()
@@ -176,13 +183,35 @@ class GrammarWordActivity : BaseActivity<ActivityGrammarWordBinding>(), IGrammar
 
     private fun setRules(rules: Rules) {
         if (rules.kr != null)
-            grammarWordBinding.ruleKoreanTV.text = Html.fromHtml(rules.kr, 0).trim()
+            setWebView(grammarWordBinding.ruleKoreanTV, rules.kr.toString())
+        else
+            setWebView(grammarWordBinding.ruleKoreanTV, getString(R.string.na))
         if (rules.en != null)
-            grammarWordBinding.ruleEnglishTV.text = Html.fromHtml(rules.en, 0).trim()
+            setWebView(grammarWordBinding.ruleEnglishTV, rules.en.toString())
+        else
+            setWebView(grammarWordBinding.ruleEnglishTV, getString(R.string.na))
         if (rules.np != null)
-            grammarWordBinding.ruleNepaliTV.text = Html.fromHtml(rules.np, 0).trim()
+            setWebView(grammarWordBinding.ruleNepaliTV, rules.np.toString())
+        else
+            setWebView(grammarWordBinding.ruleNepaliTV, getString(R.string.na))
     }
 
+    private fun setWebView(webView: WebView, text: String) {
+        webView.settings.domStorageEnabled = true
+        webView.settings.setAppCacheEnabled(true)
+        webView.settings.loadsImagesAutomatically = true
+        webView.settings.mixedContentMode =
+            WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
+
+        webView.loadDataWithBaseURL(
+            null,
+            text,
+            "text/html",
+            "UTF-8",
+            null
+        )
+        webView.setBackgroundColor(Color.TRANSPARENT)
+    }
 
     override fun onFailure(message: String?) {
         showSnackBar(message)
@@ -212,49 +241,6 @@ class GrammarWordActivity : BaseActivity<ActivityGrammarWordBinding>(), IGrammar
 
     private fun addFavouritesToList(grammar: Grammar) {
         lifecycleScope.launch { lkwbEventBus.emit(LKWBEvents.AddGrammarFavourites(grammar)) }
-    }
-
-
-    private fun displayHtml(text: String) {
-
-
-//        val imageGetter = ImageGetter(resources, html_viewer)
-        val styledText = HtmlCompat.fromHtml(
-            text,    //Instead of copying pasting, I kept it as a string
-            HtmlCompat.FROM_HTML_MODE_LEGACY,
-            null,
-            null
-        )
-//        ImageClick(styledText as Spannable)
-        //replaceQuoteSpans(styledText as Spannable)
-
-        grammarWordBinding.meaningNepaliTV.text = styledText
-        grammarWordBinding.meaningNepaliTV.movementMethod = LinkMovementMethod.getInstance()
-    }
-
-    private fun replaceQuoteSpans(spannable: Spannable) {
-
-        val quoteSpans: Array<QuoteSpan> =
-            spannable.getSpans(0, spannable.length - 1, QuoteSpan::class.java)
-
-        for (quoteSpan in quoteSpans) {
-            val start: Int = spannable.getSpanStart(quoteSpan)
-            val end: Int = spannable.getSpanEnd(quoteSpan)
-            val flags: Int = spannable.getSpanFlags(quoteSpan)
-            spannable.removeSpan(quoteSpan)
-            spannable.setSpan(
-                QuoteSpanClass(
-                    ContextCompat.getColor(this, R.color.line_divider_grey),
-                    ContextCompat.getColor(this, R.color.colorAccent),
-                    10F,
-                    50F
-                ),
-                start,
-                end,
-                flags
-            )
-        }
-
     }
 
     override val binding: ActivityGrammarWordBinding

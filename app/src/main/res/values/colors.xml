@@ -126,4 +126,6 @@
     <color name="base">#AAAAAA</color>
     <color name="iron">#CCCCCC</color>
 
+    <color name="button_reclaim">#FFF2D0</color>
+
 </resources>

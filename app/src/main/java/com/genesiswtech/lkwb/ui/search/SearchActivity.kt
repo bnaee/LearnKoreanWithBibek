@@ -5,17 +5,14 @@ import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
+import android.view.inputmethod.EditorInfo
 import androidx.core.widget.NestedScrollView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.genesiswtech.lkwb.R
 import com.genesiswtech.lkwb.base.BaseActivity
-import com.genesiswtech.lkwb.databinding.ActivityProfileBinding
 import com.genesiswtech.lkwb.databinding.ActivitySearchBinding
-import com.genesiswtech.lkwb.databinding.ActivitySettingBinding
 import com.genesiswtech.lkwb.ui.blog.BlogAdapter
 import com.genesiswtech.lkwb.ui.blog.model.BlogDataResponse
 import com.genesiswtech.lkwb.ui.blogDetail.BlogDetailActivity
@@ -31,6 +28,7 @@ import com.genesiswtech.lkwb.ui.search.presenter.SearchPresenter
 import com.genesiswtech.lkwb.ui.search.view.ISearchView
 import com.genesiswtech.lkwb.utils.AppUtils
 import com.genesiswtech.lkwb.utils.LKWBConstants
+
 
 class SearchActivity : BaseActivity<ActivitySearchBinding>(), ISearchView {
 
@@ -67,6 +65,13 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(), ISearchView {
         searchBinding.grammarSearchHandler = this
         initDependencies()
         setAdapter(type!!)
+
+        searchBinding.searchEdt.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                search()
+            }
+            true
+        }
 
     }
 
@@ -183,6 +188,25 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(), ISearchView {
 
     }
 
+    private fun search()
+    {
+        page = 1
+        apiCall(page, type!!, text!!)
+        if (type == LKWBConstants.GRAMMAR) {
+            grammarCategoryAdapter.clearList()
+        }
+        if (type == LKWBConstants.DICTIONARY) {
+            dictionarySearchAdapter.removeAllItems()
+        }
+        if (type == LKWBConstants.BLOG) {
+            blogAdapter.removeAllItems()
+        }
+        if (type == LKWBConstants.DISCUSSION) {
+            discussionAdapter.removeAllItems()
+        }
+    }
+
+
     override fun onEditTextWatcher(): TextWatcher {
         return object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
@@ -192,7 +216,7 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(), ISearchView {
 
             override fun afterTextChanged(s: Editable) {
                 text = s.toString()
-                textChangedHandler.postDelayed(runnable, 1000)
+//                textChangedHandler.postDelayed(runnable, 1200)
             }
         }
     }

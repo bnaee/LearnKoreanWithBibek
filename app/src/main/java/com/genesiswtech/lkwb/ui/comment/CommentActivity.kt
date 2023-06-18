@@ -70,14 +70,18 @@ class CommentActivity : BaseActivity<ActivityCommentBinding>(), ICommentView {
     }
 
     override fun onAddCommentClick(v: View?) {
-        showCommentDialog(
-            LKWBConstants.POST,
-            getString(R.string.add_comment),
-            id!!,
-            "",
-            getString(R.string.add_comment),
-            getString(R.string.cancel)
-        )
+        if (AppUtils.isLoggedOn()) {
+            showCommentDialog(
+                LKWBConstants.POST,
+                getString(R.string.add_comment),
+                id!!,
+                "",
+                getString(R.string.add_comment),
+                getString(R.string.cancel)
+            )
+        } else
+            AppUtils.showLoginDialog(this)
+
     }
 
     private fun setCommentAdapter(data: ArrayList<CommentDataResponse>) {

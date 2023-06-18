@@ -1,5 +1,6 @@
 package com.genesiswtech.lkwb.ui.commentReply
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +17,7 @@ import com.genesiswtech.lkwb.ui.commentReply.model.CommentReplyDataResponse
 import com.genesiswtech.lkwb.ui.commentReply.model.CommentReplyResponse
 import com.genesiswtech.lkwb.ui.commentReply.presenter.CommentReplyPresenter
 import com.genesiswtech.lkwb.ui.commentReply.view.ICommentReplyView
+import com.genesiswtech.lkwb.ui.notification.NotificationActivity
 import com.genesiswtech.lkwb.utils.AppUtils
 import com.genesiswtech.lkwb.utils.LKWBConstants
 import com.genesiswtech.lkwb.utils.LKWBEventBus
@@ -65,14 +67,18 @@ class CommentReplyActivity : BaseActivity<ActivityCommentReplyBinding>(), IComme
     }
 
     override fun onAddReplyClick(v: View?) {
-        showReplyDialog(
-            LKWBConstants.POST,
-            getString(R.string.add_a_reply),
-            id!!,
-            "",
-            getString(R.string.add_reply),
-            getString(R.string.cancel)
-        )
+        if (AppUtils.isLoggedOn()) {
+            showReplyDialog(
+                LKWBConstants.POST,
+                getString(R.string.add_a_reply),
+                id!!,
+                "",
+                getString(R.string.add_reply),
+                getString(R.string.cancel)
+            )
+        } else
+            AppUtils.showLoginDialog(this)
+
     }
 
 

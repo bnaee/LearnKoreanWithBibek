@@ -155,7 +155,7 @@
                             android:drawableLeft="@drawable/icon_nepal"
                             android:drawablePadding="10dp"
                             android:gravity="center_vertical"
-                            android:text="@string/nepali"
+                            android:text="@string/nepal"
                             android:textColor="@color/dictionary_word_sub"
                             android:textFontWeight="600"
                             app:fontFamily="@font/poppins_font_family" />
@@ -176,7 +176,7 @@
                             android:layout_marginBottom="@dimen/dimen_10"
                             android:drawableLeft="@drawable/icon_uk"
                             android:drawablePadding="10dp"
-                            android:text="@string/english"
+                            android:text="@string/englis"
                             android:textColor="@color/dictionary_word_sub"
                             android:textFontWeight="600"
                             app:fontFamily="@font/poppins_font_family" />
@@ -212,6 +212,13 @@
 
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
+                <com.google.android.gms.ads.AdView
+                    android:id="@+id/adView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    ads:adSize="BANNER"
+                    ads:adUnitId="@string/banner_ad_id" />
 
 
             </LinearLayout>

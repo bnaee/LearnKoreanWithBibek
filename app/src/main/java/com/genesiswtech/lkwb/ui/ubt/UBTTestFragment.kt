@@ -14,6 +14,7 @@ import com.genesiswtech.lkwb.R
 import com.genesiswtech.lkwb.databinding.FragmentUbtTestBinding
 import com.genesiswtech.lkwb.ui.beginTest.BeginTestActivity
 import com.genesiswtech.lkwb.ui.mostPurchase.MostPurchaseActivity
+import com.genesiswtech.lkwb.ui.notification.NotificationActivity
 import com.genesiswtech.lkwb.ui.ubt.model.PackageDataResponse
 import com.genesiswtech.lkwb.ui.ubt.model.UBTTestDataResponse
 import com.genesiswtech.lkwb.ui.ubt.model.UBTTestResponse
@@ -113,15 +114,19 @@ class UBTTestFragment : Fragment(R.layout.fragment_ubt_test), IUBTTestView {
 
         ubtTestAdapter.onItemClick =
             {
-                if (it.status == false) {
-                    val intent = Intent(requireContext(), UBTBuyActivity::class.java)
-                    intent.putExtra(LKWBConstants.BLOG_DATA, it)
-                    startActivity(intent)
-                } else {
-                    val intent = Intent(requireContext(), BeginTestActivity::class.java)
-                    intent.putExtra(LKWBConstants.BLOG_DATA, it)
-                    startActivity(intent)
-                }
+                if (AppUtils.isLoggedOn()) {
+                    if (it.status == false) {
+                        val intent = Intent(requireContext(), UBTBuyActivity::class.java)
+                        intent.putExtra(LKWBConstants.BLOG_DATA, it)
+                        startActivity(intent)
+                    } else {
+                        val intent = Intent(requireContext(), BeginTestActivity::class.java)
+                        intent.putExtra(LKWBConstants.BLOG_DATA, it)
+                        startActivity(intent)
+                    }
+                } else
+                    AppUtils.showLoginDialog(requireContext())
+
             }
         allSetApiCall()
     }
@@ -131,21 +136,25 @@ class UBTTestFragment : Fragment(R.layout.fragment_ubt_test), IUBTTestView {
     }
 
     private fun packageIntent(packageData: PackageDataResponse) {
-        if (packageData.status == false) {
-            val intent = Intent(requireContext(), UBTBuyActivity::class.java)
-            intent.putExtra(LKWBConstants.BLOG_DATA, packageData)
-            intent.putExtra(LKWBConstants.BLOG_PACKAGE, true)
-            startActivity(intent)
-        } else {
-            val intent = Intent(activity, MostPurchaseActivity::class.java)
-            intent.putExtra(
-                LKWBConstants.DATA_TITLE,
-                packageData.category + " " + getString(R.string.packag)
-            )
-            intent.putExtra(LKWBConstants.DATA_RESULT, packageData)
-            startActivity(intent)
+        if (AppUtils.isLoggedOn()) {
+            if (packageData.status == false) {
+                val intent = Intent(requireContext(), UBTBuyActivity::class.java)
+                intent.putExtra(LKWBConstants.BLOG_DATA, packageData)
+                intent.putExtra(LKWBConstants.BLOG_PACKAGE, true)
+                startActivity(intent)
+            } else {
+                val intent = Intent(activity, MostPurchaseActivity::class.java)
+                intent.putExtra(
+                    LKWBConstants.DATA_TITLE,
+                    packageData.category + " " + getString(R.string.packag)
+                )
+                intent.putExtra(LKWBConstants.DATA_RESULT, packageData)
+                startActivity(intent)
 //            navigateToPurchaseTab()
-        }
+            }
+        } else
+            AppUtils.showLoginDialog(requireContext())
+
     }
 
     override fun onPackageSuccess(packageData: ArrayList<PackageDataResponse>) {

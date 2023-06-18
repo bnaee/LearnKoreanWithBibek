@@ -15,6 +15,7 @@ import com.genesiswtech.lkwb.databinding.ListCommentBinding
 import com.genesiswtech.lkwb.databinding.ListReplyBinding
 import com.genesiswtech.lkwb.ui.commentReply.model.CommentReplyDataResponse
 import com.genesiswtech.lkwb.ui.discussionDetail.model.CommentDataResponse
+import com.genesiswtech.lkwb.utils.AppUtils
 import com.genesiswtech.lkwb.utils.LKWBConstants
 import com.genesiswtech.lkwb.utils.LKWBPreferencesManager
 import com.genesiswtech.lkwb.utils.TimeAgo
@@ -47,11 +48,15 @@ class ReplyAdapter @Inject constructor(
         Glide.with(context)
             .load(comment.userImage)
             .into(holder.replyListBinding.picIV)
-        if (comment.userId == LKWBPreferencesManager.getString(LKWBConstants.USER_ID)!!.toInt())
-            holder.replyListBinding.optionIBtn.visibility = View.VISIBLE
-        else
+        if (AppUtils.isLoggedOn()) {
+            if (comment.userId == LKWBPreferencesManager.getString(LKWBConstants.USER_ID)!!.toInt())
+                holder.replyListBinding.optionIBtn.visibility = View.VISIBLE
+            else
+                holder.replyListBinding.optionIBtn.visibility = View.GONE
+        } else
             holder.replyListBinding.optionIBtn.visibility = View.GONE
-        holder.replyListBinding.timeTV.text = context.getString(R.string.updated)+" "+comment.displayDate
+        holder.replyListBinding.timeTV.text =
+            context.getString(R.string.updated) + " " + comment.displayDate
         holder.replyListBinding.nameTV.text =
             " " + context.getString(R.string.by) + " " + comment.userName
         val strDate = comment.dateTime

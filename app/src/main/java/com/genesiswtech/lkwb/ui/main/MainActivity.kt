@@ -6,8 +6,6 @@ import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.lifecycleScope
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.bumptech.glide.Glide
@@ -54,12 +52,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IMainView, IHomeDataPa
         loadInterstitialAd()
 
         if (intent.getIntExtra(LKWBConstants.DATA_TYPE, 0) != 0) {
-//            mainBinding.bottomNavigationView.menu.getItem(
-//                intent.getIntExtra(
-//                    LKWBConstants.DATA_TYPE,
-//                    0
-//                )
-//            ).isChecked = true
             mainBinding.mainVP.currentItem = intent.getIntExtra(LKWBConstants.DATA_TYPE, 0)
         }
 
@@ -75,12 +67,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IMainView, IHomeDataPa
             adRequest,
             object : InterstitialAdLoadCallback() {
                 override fun onAdFailedToLoad(adError: LoadAdError) {
-                    Log.d("TAG Ad", adError!!.toString())
                     mInterstitialAd = null
                 }
 
                 override fun onAdLoaded(interstitialAd: InterstitialAd) {
-                    Log.d("TAG Ad", "Ad was loaded.")
                     mInterstitialAd = interstitialAd
                     if (mInterstitialAd != null) {
                         mInterstitialAd?.show(this@MainActivity)
@@ -132,7 +122,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IMainView, IHomeDataPa
         })
     }
 
-    fun firstWord(input: String): String? {
+    private fun firstWord(input: String): String? {
         return input.split(" ").toTypedArray()[0] // Create array of words and return the 0th word
     }
 
@@ -153,10 +143,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IMainView, IHomeDataPa
     }
 
     private fun setDashboardTitle() {
-        val first = firstWord(
-            LKWBPreferencesManager.getString(LKWBConstants.USER_NAME).toString()
-        )
-        mainBinding.actionBarTitleTV.text = first + "'s " + getString(R.string.home)
+        if (AppUtils.isLoggedOn()) {
+            val first = firstWord(
+                LKWBPreferencesManager.getString(LKWBConstants.USER_NAME).toString()
+            )
+            mainBinding.actionBarTitleTV.text = first + "'s " + getString(R.string.home)
+        } else
+            mainBinding.actionBarTitleTV.text =
+                "LKWB " + getString(R.string.home)
     }
 
     override fun onResume() {
@@ -202,9 +196,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IMainView, IHomeDataPa
     }
 
     private fun setActionbar() {
-        Glide.with(this).load(LKWBPreferencesManager.getString(LKWBConstants.USER_IMAGE))
-            .error(R.drawable.ic_register)
-            .into(mainBinding.actionBarProfileIV)
+        if (AppUtils.isLoggedOn())
+            Glide.with(this).load(LKWBPreferencesManager.getString(LKWBConstants.USER_IMAGE))
+                .error(R.drawable.ic_dummy)
+                .into(mainBinding.actionBarProfileIV)
     }
 
     override val binding: ActivityMainBinding
@@ -219,8 +214,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IMainView, IHomeDataPa
     }
 
     override fun onNotificationClick(v: View?) {
-        val intent = Intent(this, NotificationActivity::class.java)
-        startActivity(intent)
+        if (AppUtils.isLoggedOn()) {
+            val intent = Intent(this, NotificationActivity::class.java)
+            startActivity(intent)
+        } else
+            AppUtils.showLoginDialog(this)
     }
 
     override fun onMenuClick(v: View?) {

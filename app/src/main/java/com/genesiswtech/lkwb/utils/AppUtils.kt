@@ -18,12 +18,11 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
-import android.widget.LinearLayout
-import android.widget.RelativeLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.*
+import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
@@ -490,10 +489,11 @@ object AppUtils {
 
     fun logOutCall(activity: Activity) {
         LKWBPreferencesManager.put(null, LKWBConstants.KEY_USER)
-        val intent = Intent(activity, LoginActivity::class.java)
+        val intent = Intent(activity, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-        activity.finish()
         activity.startActivity(intent)
+        activity.finish()
+        activity.overridePendingTransition(0, 0)
     }
 
     fun showAddDiscussionDialog(
@@ -543,14 +543,17 @@ object AppUtils {
     }
 
     fun showBannerImageDialog(
-        context: Context, imageUrl: String
+        context: Context, imageUrl: String, url: String
     ) {
         val dialog = Dialog(context, R.style.Theme_Dialog)
         dialog.setCancelable(false)
         dialog.setContentView(R.layout.dialog_banner_image)
         val dialogImage = dialog.findViewById(R.id.image) as? AppCompatImageView
         val dialogCancelButton = dialog.findViewById(R.id.closeIBtn) as AppCompatImageButton
-
+        dialogImage!!.setOnClickListener {
+            context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+            dialog.dismiss()
+        }
         dialogCancelButton.setOnClickListener {
             dialog.dismiss()
         }
@@ -739,6 +742,75 @@ object AppUtils {
         return false
     }
 
+    fun isLoggedOn(): Boolean {
+        val userData = LKWBPreferencesManager.get<LoginDataResponse>(LKWBConstants.KEY_USER)
+        if (userData != null)
+            return true
+        else
+            return false
+    }
+
+    fun showLoginDialog(
+        context: Context
+    ) {
+        val dialog = Dialog(context, R.style.Theme_Dialog)
+        dialog.setCancelable(false)
+        dialog.setContentView(R.layout.layout_dialog)
+        val dialogTitle = dialog.findViewById(R.id.titleTV) as AppCompatTextView
+        val dialogSubTitle = dialog.findViewById(R.id.subTitleTV) as AppCompatTextView
+        val dialogPositiveButton = dialog.findViewById(R.id.yesBtn) as AppCompatButton
+        val dialogNegativeButton = dialog.findViewById(R.id.cancelBtn) as AppCompatButton
+        dialogTitle.setText(R.string.want_to_login)
+        dialogSubTitle.setText(R.string.feature_require_login)
+        dialogPositiveButton.setText(R.string.login)
+        dialogNegativeButton.setText(R.string.cancel)
+        dialogPositiveButton.setOnClickListener {
+            val intent = Intent(context, LoginActivity::class.java)
+            context.startActivity(intent)
+            dialog.dismiss()
+        }
+        dialogNegativeButton.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.show()
+    }
+
+
+    fun showReclaimDialog(
+        context: Context,
+        positiveButtonFunction: (String, String) -> Unit
+    ) {
+        val dialog = Dialog(context, R.style.Theme_Dialog)
+        dialog.setCancelable(false)
+        val reclaimList = arrayOf(
+            "Esewa",
+            "Khalti"
+        )
+        dialog.setContentView(R.layout.dialog_reclaim)
+        val closeIBtn = dialog.findViewById(R.id.closeIBtn) as AppCompatImageButton
+        val reclaimSpinner = dialog.findViewById(R.id.reclaimSpinner) as Spinner
+        val reclaimEdt = dialog.findViewById(R.id.reclaimEdt) as AppCompatEditText
+        val dialogPositiveButton = dialog.findViewById(R.id.submitBtn) as AppCompatButton
+
+        val adapter =
+            ArrayAdapter(context, R.layout.list_spinner, reclaimList)
+        adapter.setDropDownViewResource( R.layout.list_spinner)
+        reclaimSpinner.adapter = adapter
+
+        dialogPositiveButton.setOnClickListener {
+            positiveButtonFunction.invoke(
+                reclaimEdt.text.toString(),
+                reclaimSpinner.selectedItem.toString()
+            )
+            if (reclaimEdt.text.toString().isNotEmpty())
+                dialog.dismiss()
+        }
+        closeIBtn.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
 
 }
 

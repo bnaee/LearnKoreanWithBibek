@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.genesiswtech.lkwb.R
 import com.genesiswtech.lkwb.databinding.FragmentUbtBinding
+import com.genesiswtech.lkwb.utils.AppUtils
 import com.genesiswtech.lkwb.utils.LKWBEventBus
 import com.genesiswtech.lkwb.utils.LKWBEvents
 import com.google.android.material.tabs.TabLayout
@@ -17,7 +18,7 @@ import org.koin.android.ext.android.inject
 
 class UBTFragment : Fragment(R.layout.fragment_ubt) {
 
-     private lateinit var fragmentUbtBinding: FragmentUbtBinding
+    private lateinit var fragmentUbtBinding: FragmentUbtBinding
     private var firstRun: Boolean? = false
 
     private val lkwbEventBus by inject<LKWBEventBus>()
@@ -34,10 +35,13 @@ class UBTFragment : Fragment(R.layout.fragment_ubt) {
     }
 
     private fun setupViewPager() {
+        var count = fragmentUbtBinding.ubtTL.tabCount
+        if (!AppUtils.isLoggedOn())
+            count = 1
         fragmentUbtBinding.ubtVP.apply {
             adapter = UBTViewPagerAdapter(
                 requireActivity().supportFragmentManager,
-                fragmentUbtBinding.ubtTL.tabCount
+                count
             )
             addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(fragmentUbtBinding.ubtTL))
         }
@@ -52,9 +56,15 @@ class UBTFragment : Fragment(R.layout.fragment_ubt) {
 
             addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
                 override fun onTabSelected(tab: TabLayout.Tab?) {
-                    tab?.position?.let {
-                        fragmentUbtBinding.ubtVP.currentItem = it
+                    if (AppUtils.isLoggedOn()) {
+                        tab?.position?.let {
+                            fragmentUbtBinding.ubtVP.currentItem = it
+                        }
+                    } else {
+                        if (tab?.position == 1)
+                            AppUtils.showLoginDialog(requireContext())
                     }
+
                 }
 
                 override fun onTabUnselected(tab: TabLayout.Tab?) {

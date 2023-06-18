@@ -3,6 +3,7 @@ package com.genesiswtech.lkwb.ui.menu.view
 import android.view.View
 import com.genesiswtech.lkwb.ui.login.model.LoginResponse
 import com.genesiswtech.lkwb.ui.menu.model.LogOutResponse
+import com.genesiswtech.lkwb.ui.menu.model.ReclaimResponse
 
 interface IMenuView {
 
@@ -15,7 +16,10 @@ interface IMenuView {
     fun onContactUsClick(v: View?)
     fun onGuideClick(v: View?)
     fun onWordCardClick(v: View?)
+    fun onReclaimClick(v: View?)
     fun onLogOutClick(v: View?)
+
+    fun onReclaimSuccess(reclaimResponse: ReclaimResponse)
 
     fun onLogOutSuccess(logOutResponse: LogOutResponse)
 

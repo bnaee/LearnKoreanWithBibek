@@ -24,6 +24,7 @@ import com.genesiswtech.lkwb.ui.home.presenter.HomePresenter
 import com.genesiswtech.lkwb.ui.home.view.IHomeDataPass
 import com.genesiswtech.lkwb.ui.home.view.IHomeView
 import com.genesiswtech.lkwb.ui.mostPurchase.MostPurchaseActivity
+import com.genesiswtech.lkwb.ui.notification.NotificationActivity
 import com.genesiswtech.lkwb.ui.ubt.UBTTestAdapter
 import com.genesiswtech.lkwb.ui.ubt.model.UBTTestDataResponse
 import com.genesiswtech.lkwb.ui.ubtBuy.UBTBuyActivity
@@ -51,6 +52,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), IHomeView {
     lateinit var testScrorePB: ProgressBar
 
     lateinit var bannerUrl: String
+    lateinit var imageUrl: String
     lateinit var servicesAdapter: ServicesAdapter
     lateinit var adRequest: AdRequest
 
@@ -82,7 +84,8 @@ class HomeFragment : Fragment(R.layout.fragment_home), IHomeView {
         homePresenter!!.getServices(requireContext())
         homePresenter!!.getBanner(requireContext())
 //        resultHistoryApiCall()
-        lastTestScoreApiCall()
+        if (AppUtils.isLoggedOn())
+            lastTestScoreApiCall()
         updateUBTListFromInvoiceResult()
 
         FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
@@ -247,7 +250,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), IHomeView {
     }
 
     override fun onHomeBannerClick(v: View?) {
-        AppUtils.showBannerImageDialog(requireContext(), bannerUrl)
+        AppUtils.showBannerImageDialog(requireContext(), bannerUrl,imageUrl)
     }
 
     override fun onMostBoughtSuccess(mostBoughtResponse: MostBoughtResponse) {
@@ -271,6 +274,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), IHomeView {
 
     override fun onBannerSuccess(bannerDataResponse: BannerDataResponse) {
         bannerUrl = bannerDataResponse.image.toString()
+        imageUrl = bannerDataResponse.imageUrl.toString()
         Glide.with(requireContext()).load(bannerDataResponse.image)
             .into(fragmentHomeBinding!!.imgHomeBanner)
         fragmentHomeBinding!!.bannerHeaderTV.text = bannerDataResponse.topText
@@ -328,15 +332,19 @@ class HomeFragment : Fragment(R.layout.fragment_home), IHomeView {
         fragmentHomeBinding!!.recyclerViewMostBuySets.adapter = mostBoughtAdapter
         mostBoughtAdapter.onItemClick = {
             Log.d("TAG", it.title.toString())
-            if (it.status == false) {
-                val intent = Intent(requireContext(), UBTBuyActivity::class.java)
-                intent.putExtra(LKWBConstants.BLOG_DATA, it)
-                startActivity(intent)
-            } else {
-                val intent = Intent(requireContext(), BeginTestActivity::class.java)
-                intent.putExtra(LKWBConstants.BLOG_DATA, it)
-                startActivity(intent)
-            }
+            if (AppUtils.isLoggedOn()) {
+                if (it.status == false) {
+                    val intent = Intent(requireContext(), UBTBuyActivity::class.java)
+                    intent.putExtra(LKWBConstants.BLOG_DATA, it)
+                    startActivity(intent)
+                } else {
+                    val intent = Intent(requireContext(), BeginTestActivity::class.java)
+                    intent.putExtra(LKWBConstants.BLOG_DATA, it)
+                    startActivity(intent)
+                }
+            } else
+                AppUtils.showLoginDialog(requireContext())
+
         }
     }
 
@@ -345,15 +353,19 @@ class HomeFragment : Fragment(R.layout.fragment_home), IHomeView {
         val newTestAdapter = UBTTestAdapter(data, requireActivity())
         fragmentHomeBinding!!.recyclerViewNewTest.adapter = newTestAdapter
         newTestAdapter.onItemClick = {
-            if (it.status == false) {
-                val intent = Intent(requireContext(), UBTBuyActivity::class.java)
-                intent.putExtra(LKWBConstants.BLOG_DATA, it)
-                startActivity(intent)
-            } else {
-                val intent = Intent(requireContext(), BeginTestActivity::class.java)
-                intent.putExtra(LKWBConstants.BLOG_DATA, it)
-                startActivity(intent)
-            }
+            if (AppUtils.isLoggedOn()) {
+                if (it.status == false) {
+                    val intent = Intent(requireContext(), UBTBuyActivity::class.java)
+                    intent.putExtra(LKWBConstants.BLOG_DATA, it)
+                    startActivity(intent)
+                } else {
+                    val intent = Intent(requireContext(), BeginTestActivity::class.java)
+                    intent.putExtra(LKWBConstants.BLOG_DATA, it)
+                    startActivity(intent)
+                }
+            } else
+                AppUtils.showLoginDialog(requireContext())
+
         }
     }
 

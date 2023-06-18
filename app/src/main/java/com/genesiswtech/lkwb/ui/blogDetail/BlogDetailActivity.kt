@@ -25,6 +25,7 @@ import com.genesiswtech.lkwb.ui.blogDetail.model.LatestBlogs
 import com.genesiswtech.lkwb.ui.blogDetail.presenter.BlogDetailPresenter
 import com.genesiswtech.lkwb.ui.blogDetail.view.IBlogDetailView
 import com.genesiswtech.lkwb.ui.comment.CommentActivity
+import com.genesiswtech.lkwb.ui.notification.NotificationActivity
 import com.genesiswtech.lkwb.utils.AppUtils
 import com.genesiswtech.lkwb.utils.AppUtils.addItemDecorationWithoutLastItemGrey
 import com.genesiswtech.lkwb.utils.LKWBConstants
@@ -137,10 +138,14 @@ class BlogDetailActivity : BaseActivity<ActivityBlogDetailBinding>(), IBlogDetai
     }
 
     override fun onBlogFavouriteClick(v: View?) {
-        if (isFavourite == true)
-            blogDetailPresenter!!.postRemoveFavouriteBlog(this, id!!, LKWBConstants.BLOG)
-        else
-            blogDetailPresenter!!.postAddFavouriteBlog(this, id!!, LKWBConstants.BLOG)
+        if (AppUtils.isLoggedOn()) {
+            if (isFavourite == true)
+                blogDetailPresenter!!.postRemoveFavouriteBlog(this, id!!, LKWBConstants.BLOG)
+            else
+                blogDetailPresenter!!.postAddFavouriteBlog(this, id!!, LKWBConstants.BLOG)
+        } else
+            AppUtils.showLoginDialog(this)
+
     }
 
     override fun onCommentCountClick(v: View?) {

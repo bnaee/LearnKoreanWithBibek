@@ -1,5 +1,6 @@
 package com.genesiswtech.lkwb.ui.dictionaryWord
 
+import android.content.Intent
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.text.Html
@@ -19,6 +20,7 @@ import com.genesiswtech.lkwb.ui.dictionaryWord.presenter.DictionaryWordPresenter
 import com.genesiswtech.lkwb.ui.dictionaryWord.view.IDictionaryWordView
 import com.genesiswtech.lkwb.ui.favouriteDetail.view.IFavouriteDataPass
 import com.genesiswtech.lkwb.ui.grammar.model.Grammar
+import com.genesiswtech.lkwb.ui.notification.NotificationActivity
 import com.genesiswtech.lkwb.utils.AppUtils
 import com.genesiswtech.lkwb.utils.LKWBConstants
 import com.genesiswtech.lkwb.utils.LKWBEventBus
@@ -74,6 +76,7 @@ class DictionaryWordActivity : BaseActivity<ActivityDictionaryWordBinding>(), ID
         MobileAds.initialize(this)
         adRequest = AdRequest.Builder().build()
         dictionaryWordBinding.adView.loadAd(adRequest)
+        dictionaryWordBinding.adView1.loadAd(adRequest)
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -86,18 +89,22 @@ class DictionaryWordActivity : BaseActivity<ActivityDictionaryWordBinding>(), ID
     }
 
     override fun onFavouriteButtonClick(v: View?) {
-        if (isFavourite == true)
-            dictionaryWordPresenter!!.postRemoveFavouriteDictionary(
-                this,
-                id!!,
-                LKWBConstants.DICTIONARY
-            )
-        else
-            dictionaryWordPresenter!!.postAddFavouriteDictionary(
-                this,
-                id!!,
-                LKWBConstants.DICTIONARY
-            )
+        if (AppUtils.isLoggedOn()) {
+            if (isFavourite == true)
+                dictionaryWordPresenter!!.postRemoveFavouriteDictionary(
+                    this,
+                    id!!,
+                    LKWBConstants.DICTIONARY
+                )
+            else
+                dictionaryWordPresenter!!.postAddFavouriteDictionary(
+                    this,
+                    id!!,
+                    LKWBConstants.DICTIONARY
+                )
+        } else
+            AppUtils.showLoginDialog(this)
+
     }
 
     override fun onShareButtonClick(v: View?) {

@@ -23,6 +23,7 @@ import com.genesiswtech.lkwb.ui.discussion.model.DiscussionPostResponse
 import com.genesiswtech.lkwb.ui.discussion.presenter.DiscussionPresenter
 import com.genesiswtech.lkwb.ui.discussion.view.IDiscussionView
 import com.genesiswtech.lkwb.ui.discussionDetail.DiscussionDetailActivity
+import com.genesiswtech.lkwb.ui.notification.NotificationActivity
 import com.genesiswtech.lkwb.ui.search.SearchActivity
 import com.genesiswtech.lkwb.utils.AppUtils
 import com.genesiswtech.lkwb.utils.LKWBConstants
@@ -124,7 +125,10 @@ class DiscussionFragment : Fragment(R.layout.fragment_discussion), IDiscussionVi
     }
 
     override fun onAddDiscussionClick(v: View?) {
-        showAddDiscussionDialog(requireContext())
+        if (AppUtils.isLoggedOn()) {
+            showAddDiscussionDialog(requireContext())
+        } else
+            AppUtils.showLoginDialog(requireContext())
     }
 
     override fun onSuccess(discussionDataResponse: ArrayList<DiscussionDataResponse>) {

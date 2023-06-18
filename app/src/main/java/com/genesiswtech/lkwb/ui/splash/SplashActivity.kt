@@ -81,11 +81,10 @@ class SplashActivity : AppCompatActivity() {
 
                 }
             } else {
+                splashCall(500)
                 Log.d("TAG", "Config params updated: ${task.exception}")
             }
         }
-
-
     }
 
     private fun showUpdateDialog(message: String) {
@@ -157,12 +156,12 @@ class SplashActivity : AppCompatActivity() {
                         finish()
                     }, 100)
                 } else {
-                    val intent = Intent(this, LoginActivity::class.java)
+                    val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                     finish()
                 }
             } else {
-                val intent = Intent(this, LoginActivity::class.java)
+                val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 finish()
             }

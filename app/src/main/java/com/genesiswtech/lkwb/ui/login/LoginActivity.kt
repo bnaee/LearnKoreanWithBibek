@@ -223,8 +223,10 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(), ILoginView {
                     finish()
                 } else {
                     val intent = Intent(this, MainActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
                     startActivity(intent)
                     finish()
+                    overridePendingTransition(0, 0)
                 }
 
             }, 1, TimeUnit.SECONDS)

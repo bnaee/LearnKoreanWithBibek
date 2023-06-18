@@ -19,6 +19,7 @@ import com.genesiswtech.lkwb.ui.home.model.MostBoughtResponse
 import com.genesiswtech.lkwb.ui.mostPurchase.model.PackageListDataResponse
 import com.genesiswtech.lkwb.ui.mostPurchase.presenter.MostPurchasePresenter
 import com.genesiswtech.lkwb.ui.mostPurchase.view.IMostPurchaseView
+import com.genesiswtech.lkwb.ui.notification.NotificationActivity
 import com.genesiswtech.lkwb.ui.ubt.UBTTestAdapter
 import com.genesiswtech.lkwb.ui.ubt.model.PackageDataResponse
 import com.genesiswtech.lkwb.ui.ubt.model.UBTTestDataResponse
@@ -137,19 +138,22 @@ class MostPurchaseActivity : BaseActivity<ActivityMostPurchaseBinding>(), IMostP
 
         mostPurchaseAdapter.onItemClick = {
             Log.d("TAG", it.title.toString())
-            if (it.status == false) {
-                val intent = Intent(this, UBTBuyActivity::class.java)
-                intent.putExtra(LKWBConstants.BLOG_DATA, it)
-                startActivity(intent)
-            } else {
-                val intent = Intent(this, BeginTestActivity::class.java)
-                intent.putExtra(LKWBConstants.BLOG_DATA, it)
-                if (title == getString(R.string.new_test) || title == getString(R.string.most_purchase_sets))
-                    intent.putExtra(LKWBConstants.BLOG_PACKAGE, "")
-                else
-                    intent.putExtra(LKWBConstants.BLOG_PACKAGE, packageData!!.id.toString())
-                startActivity(intent)
-            }
+            if (AppUtils.isLoggedOn()) {
+                if (it.status == false) {
+                    val intent = Intent(this, UBTBuyActivity::class.java)
+                    intent.putExtra(LKWBConstants.BLOG_DATA, it)
+                    startActivity(intent)
+                } else {
+                    val intent = Intent(this, BeginTestActivity::class.java)
+                    intent.putExtra(LKWBConstants.BLOG_DATA, it)
+                    if (title == getString(R.string.new_test) || title == getString(R.string.most_purchase_sets))
+                        intent.putExtra(LKWBConstants.BLOG_PACKAGE, "")
+                    else
+                        intent.putExtra(LKWBConstants.BLOG_PACKAGE, packageData!!.id.toString())
+                    startActivity(intent)
+                }
+            } else
+                AppUtils.showLoginDialog(this)
         }
         apiCall(page)
     }

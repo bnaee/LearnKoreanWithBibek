@@ -26,12 +26,14 @@ import com.genesiswtech.lkwb.ui.commentReply.CommentReplyActivity
 import com.genesiswtech.lkwb.ui.discussionDetail.model.*
 import com.genesiswtech.lkwb.ui.discussionDetail.presenter.DiscussionDetailsPresenter
 import com.genesiswtech.lkwb.ui.discussionDetail.view.IDiscussionDetailView
+import com.genesiswtech.lkwb.ui.notification.NotificationActivity
 import com.genesiswtech.lkwb.utils.*
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 
 
-class DiscussionDetailActivity : BaseActivity<ActivityDiscussionDetailBinding>(), IDiscussionDetailView {
+class DiscussionDetailActivity : BaseActivity<ActivityDiscussionDetailBinding>(),
+    IDiscussionDetailView {
 
     private lateinit var discussionDetailBinding: ActivityDiscussionDetailBinding
     private var discussionDetailPresenter: DiscussionDetailsPresenter? = null
@@ -98,11 +100,15 @@ class DiscussionDetailActivity : BaseActivity<ActivityDiscussionDetailBinding>()
     }
 
     override fun onAddCommentClick(v: View?) {
-        discussionDetailPresenter!!.postComment(
-            this,
-            id!!,
-            discussionDetailBinding.commentEdt.text.toString()
-        )
+        if (AppUtils.isLoggedOn()) {
+            discussionDetailPresenter!!.postComment(
+                this,
+                id!!,
+                discussionDetailBinding.commentEdt.text.toString()
+            )
+        } else
+            AppUtils.showLoginDialog(this)
+
     }
 
     private fun setCommentAdapter(data: ArrayList<CommentDataResponse>) {
@@ -134,9 +140,9 @@ class DiscussionDetailActivity : BaseActivity<ActivityDiscussionDetailBinding>()
         })
 
         commentAdapter.onItemClick = {
-            val intent = Intent(this, CommentReplyActivity::class.java)
-            intent.putExtra(LKWBConstants.DATA_ID, it.id)
-            startActivity(intent)
+                val intent = Intent(this, CommentReplyActivity::class.java)
+                intent.putExtra(LKWBConstants.DATA_ID, it.id)
+                startActivity(intent)
         }
 
         commentAdapter.onEditClick = {
@@ -168,10 +174,14 @@ class DiscussionDetailActivity : BaseActivity<ActivityDiscussionDetailBinding>()
             discussionDetailBinding.descriptionTV.text = getString(R.string.na)
         else
             discussionDetailBinding.descriptionTV.text = discussionDetailData.description
-
-        if (discussionDetailData.userId != LKWBPreferencesManager.getString(LKWBConstants.USER_ID)!!
-                .toInt()
-        ) {
+        if (AppUtils.isLoggedOn()) {
+            if (discussionDetailData.userId != LKWBPreferencesManager.getString(LKWBConstants.USER_ID)!!
+                    .toInt()
+            ) {
+                discussionDetailBinding.editTV.visibility = View.GONE
+                discussionDetailBinding.deleteTV.visibility = View.GONE
+            }
+        } else {
             discussionDetailBinding.editTV.visibility = View.GONE
             discussionDetailBinding.deleteTV.visibility = View.GONE
         }

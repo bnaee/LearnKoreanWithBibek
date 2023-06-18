@@ -13,7 +13,9 @@ import com.genesiswtech.lkwb.databinding.ActivitySettingBinding
 import com.genesiswtech.lkwb.ui.changeLanguage.ChangeLanguageActivity
 import com.genesiswtech.lkwb.ui.favourite.FavouriteActivity
 import com.genesiswtech.lkwb.ui.favourite.FavouriteAdapter
+import com.genesiswtech.lkwb.ui.login.LoginActivity
 import com.genesiswtech.lkwb.ui.menu.model.LogOutResponse
+import com.genesiswtech.lkwb.ui.notification.NotificationActivity
 import com.genesiswtech.lkwb.ui.profile.ProfileActivity
 import com.genesiswtech.lkwb.ui.setting.presenter.SettingPresenter
 import com.genesiswtech.lkwb.ui.setting.view.ISettingView
@@ -40,8 +42,14 @@ class SettingActivity : BaseActivity<ActivitySettingBinding>(), ISettingView {
         settingBinding.settingHandler = this
         initDependencies()
         val data = ArrayList<String>()
-        data.add(getString(R.string.profile))
-        data.add(getString(R.string.favourite))
+        if (AppUtils.isLoggedOn()) {
+            data.add(getString(R.string.profile))
+            data.add(getString(R.string.favourite))
+        } else {
+            settingBinding.logOutBtn.visibility = View.GONE
+            data.add(getString(R.string.login))
+        }
+
         data.add(getString(R.string.change_language))
         setSettingAdapter(data)
 
@@ -60,6 +68,9 @@ class SettingActivity : BaseActivity<ActivitySettingBinding>(), ISettingView {
                 startActivity(intent)
             } else if (it == getString(R.string.change_language)) {
                 val intent = Intent(this, ChangeLanguageActivity::class.java)
+                startActivity(intent)
+            } else if (it == getString(R.string.login)) {
+                val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
             } else {
                 val intent = Intent(this, FavouriteActivity::class.java)

@@ -23,6 +23,7 @@ import com.genesiswtech.lkwb.ui.grammarWord.model.GrammarWordResponse
 import com.genesiswtech.lkwb.ui.home.model.*
 import com.genesiswtech.lkwb.ui.login.model.LoginResponse
 import com.genesiswtech.lkwb.ui.menu.model.LogOutResponse
+import com.genesiswtech.lkwb.ui.menu.model.ReclaimResponse
 import com.genesiswtech.lkwb.ui.mostPurchase.model.PackageListResponse
 import com.genesiswtech.lkwb.ui.newPassword.model.NewPasswordResponse
 import com.genesiswtech.lkwb.ui.notification.model.NotificationResponse
@@ -448,5 +449,12 @@ interface INetworkApi {
         @Field("device_id") method: String?,
         @Field("device_type") password: String?,
     ): Observable<Response<StorePushTokenResponse>>
+
+    @FormUrlEncoded
+    @POST(Endpoints.reclaim)
+    fun postReclaim(
+        @Field("txn_id") txn_id: String?,
+        @Field("gateway") gateway: String?
+    ): Observable<Response<ReclaimResponse>>
 
 }
